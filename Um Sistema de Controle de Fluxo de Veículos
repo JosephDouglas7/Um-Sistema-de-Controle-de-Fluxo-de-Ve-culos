@@ -1,0 +1,78 @@
+#include<stdio.h> 
+#include<stdlib.h> 
+
+void tela_menu_principal(void); 
+void tela_sobre(void); 
+void tela_cadastrar_veiculo(void); 
+void tela_pesquisar_veiculo(void); 
+void tela_alterar_veiculo(void); 
+void tela_excluir_veiculo(void); 
+
+int main(void){ 
+   tela_menu_principal(); 
+   tela_cadastrar_veiculo(); 
+   tela_pesquisar_veiculo(); 
+   tela_alterar_veiculo(); 
+   tela_excluir_veiculo(); 
+   return 0;
+}  
+void tela_menu_principal(void){ 
+   char op; 
+   sistem("clear||crl"); 
+   printf("\n"); 
+   printf("\n#####################################################");
+   printf("\n#                                                   #");
+   printf("\n#   Universidade Federal do Rio Grande do Norte     #");
+   printf("\n#      Centro de Ensino Superior do Seridó          #"); 
+   printf("\n#    Departamento de Computação e Tecnologia        #");
+   printf("\n#        Disciplina DCT1106 -- Programação          #"); 
+   printf("\n#  projeto Sistema de Controle de Fluxo de Veículos #");
+   printf("\n#   Developed by @josephdouglas -- since Mar, 2024  #");
+   printf("\n#####################################################");
+   printf("\n#                                                   #"); 
+   printf("\n#   = Sistema de controle de fluxo de veículos =    #"); 
+   printf("\n#      1.Cadastrar veículo                          #"); 
+   printf("\n#      2.Pesquisar veículo                          #"); 
+   printf("\n#      3.Alterar veículo                            #"); 
+   printf("\n#      4.Excluir veículo                            #"); 
+   printf("\n#      5.Relatórios                                 #"); 
+   printf("\n#Qual sua opcao?:                                   #"); 
+   scanf("%c",&op); 
+   getchar();   
+}   
+   void tela_sobre(void) {
+       system("clear||cls");
+       printf("\n"); 
+       printf("\n####################################################"); 
+       printf("\n#                                                  #"); 
+       printf("\n#   Universidade Federal do Rio Grande do Norte    #"); 
+       printf("\n#      Centro de Ensino Superior do Seridó         #"); 
+       printf("\n#     Departamento de Computação e Tecnologia      #"); 
+       printf("\n#       Disciplina DCT1106 -- Programação          #"); 
+       printf("\n# projeto Sistema de Controle de Fluxo de Veículos #"); 
+       printf("\n#  Developed by @josephdouglas -- since Mar, 2024  #"); 
+       printf("\n####################################################"); 
+       printf("\n#                                                  #"); 
+       printf("\n# == Sistema de Controle de Fluxo de Veículos ==   #"); 
+       printf("\n# Programa para geração de nota para a diciplina   #"); 
+       printf("\n# DCT1106 - Programação. O programa contém todos   #"); 
+       printf("\n# os conhecimentos aprendidos na disciplina.       #"); 
+       printf("\n#                                                  #");
+       printf("\n####################################################");
+       printf("\n"); 
+       getchar(); 
+} 
+  void tela_cadastrar_veiculo(void) { 
+     printf("\n######################################################"); 
+     printf("\n#                                                    #"); 
+     printf("\n#         = = = = Cadastrar Veículo = = = =          #");
+     printf("\n#                                                    #");
+     printf("\n#     Nome do motorista:                             #"); 
+     printf("\n#     Marca do veículo:                              #"); 
+     printf("\n#     Número de contato:                             #"); 
+     printf("\n#     Placa do veículo:                              #"); 
+     printf("\n#                                                    #"); 
+     printf("\n######################################################"); 
+     printf("\n"); 
+     getchar(); 
+  } 
