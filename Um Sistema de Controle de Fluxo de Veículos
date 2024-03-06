@@ -2,18 +2,13 @@
 #include<stdlib.h> 
 
 void tela_menu_principal(void); 
-void tela_sobre(void); 
-void tela_cadastrar_veiculo(void); 
-void tela_pesquisar_veiculo(void); 
-void tela_alterar_veiculo(void); 
-void tela_excluir_veiculo(void); 
+void tela_sobre(void);  
+void tela_equipe(void);
 
 int main(void){ 
-   tela_menu_principal(); 
-   tela_cadastrar_veiculo(); 
-   tela_pesquisar_veiculo(); 
-   tela_alterar_veiculo(); 
-   tela_excluir_veiculo(); 
+   tela_menu_principal();  
+   tela_sobre(); 
+   tela_equipe(void);
    return 0;
 }  
 void tela_menu_principal(void){ 
@@ -35,7 +30,9 @@ void tela_menu_principal(void){
    printf("\n#      2.Pesquisar veículo                          #"); 
    printf("\n#      3.Alterar veículo                            #"); 
    printf("\n#      4.Excluir veículo                            #"); 
-   printf("\n#      5.Relatórios                                 #"); 
+   printf("\n#      5.Relatórios                                 #");  
+   printf("\n#      6.Sobre                                      #"); 
+   printf("\n#      7.Equipe                                     #");
    printf("\n#Qual sua opcao?:                                   #"); 
    scanf("%c",&op); 
    getchar();   
@@ -62,17 +59,29 @@ void tela_menu_principal(void){
        printf("\n"); 
        getchar(); 
 } 
-  void tela_cadastrar_veiculo(void) { 
-     printf("\n######################################################"); 
-     printf("\n#                                                    #"); 
-     printf("\n#         = = = = Cadastrar Veículo = = = =          #");
-     printf("\n#                                                    #");
-     printf("\n#     Nome do motorista:                             #"); 
-     printf("\n#     Marca do veículo:                              #"); 
-     printf("\n#     Número de contato:                             #"); 
-     printf("\n#     Placa do veículo:                              #"); 
-     printf("\n#                                                    #"); 
-     printf("\n######################################################"); 
+  void tela_equipe(void){ 
+     system("clear||cls");
      printf("\n"); 
-     getchar(); 
-  } 
+     printf("\n########################################################################################"); 
+     printf("\n#                                                                                      #"); 
+     printf("\n#                    Universidade Federal do Rio Grande do Norte                       #"); 
+     printf("\n#                       Centro de Ensino Superior do Seridó                            #"); 
+     printf("\n#                     Departamento de Computação e Tecnologia                          #"); 
+     printf("\n#                        Disciplina DCT1106 -- Programação                             #"); 
+     printf("\n#                   projeto Sistema de Controle de Fluxo de Veículos                   #"); 
+     printf("\n#                    Developed by @josephdouglas -- since Mar, 2024                    #"); 
+     printf("\n########################################################################################"); 
+     printf("\n#                                                                                      #");
+     printf("\n#                    = Sistema de controle de fluxo de veículos =                      #");
+     printf("\n#                                                                                      #"); 
+     printf("\n#    Este projeto exemplo foi desenvolvido por:                                        #"); 
+     printf("\n#                                                                                      #"); 
+     printf("\n#  Aluno: Joseph Douglas                                                               #"); 
+     printf("\n#  Email: joseph.batista.066@ufrn.edu.br                                               #"); 
+     printf("\n# Redes sociais:@josephdouglas                                                         #"); 
+     printf("\n# Git: https://github.com/JosephDouglas7/Um-Sistema-de-Controle-de-Fluxo-de-Ve-culos   #"); 
+     printf("\n#                                                                                      #");
+     printf("\n########################################################################################");  
+     printf("\n"); 
+     getchar();
+  }
