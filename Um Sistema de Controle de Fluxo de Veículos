@@ -8,7 +8,7 @@ void tela_equipe(void);
 int main(void){ 
    tela_menu_principal();  
    tela_sobre(); 
-   tela_equipe(void);
+   tela_equipe();
    return 0;
 }  
 void tela_menu_principal(void){ 
@@ -34,7 +34,7 @@ void tela_menu_principal(void){
    printf("\n#      5.Relatórios                                 #");  
    printf("\n#      6.Sobre                                      #"); 
    printf("\n#      7.Equipe                                     #");
-   printf("\n#Qual sua opcao?:                                   #"); 
+   printf("\n#Qual sua opcao?:"); 
    scanf("%c",&op); 
    getchar();   
 }   
