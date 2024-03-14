@@ -6,11 +6,13 @@
 void tela_menu_principal(void); 
 void tela_sobre(void);  
 void tela_equipe(void);
+void tela_cadastrar_veiculo(void);
 
 int main(void){ 
    tela_menu_principal();  
    tela_sobre(); 
-   tela_equipe();
+   tela_equipe(); 
+   tela_cadastrar_veiculo();
    return 0;
 }  
 void tela_menu_principal(void){ 
@@ -86,4 +88,19 @@ void tela_menu_principal(void){
      printf("\n########################################################################################");  
      printf("\n"); 
      getchar();
-  }
+  } 
+  void tela_cadastrar_veiculo(void){ 
+     system("clear||cls");
+     printf("\n");   
+     printf("\n########################################################################################"); 
+     printf("\n#                                                                                      #\n");
+     printf("\n#                    = = = = Cadastrar Veículo = = = =                                 #\n"); 
+     printf("\n# Nome do motorista:                                                                   #\n"); 
+     printf("\n# Marca do veículo:                                                                    #\n"); 
+     printf("\n# Número de contato:                                                                   #\n"); 
+     printf("\n# Placa do veículo:                                                                    #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n"); 
+     printf("\n"); 
+     getchar();
+  } 
