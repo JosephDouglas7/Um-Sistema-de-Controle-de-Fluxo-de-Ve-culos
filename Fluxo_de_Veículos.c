@@ -6,7 +6,10 @@
 void tela_menu_principal(void); 
 void tela_sobre(void);  
 void tela_equipe(void);
-void tela_cadastrar_veiculo(void);
+void tela_cadastrar_veiculo(void); 
+void cadastrar_novo_veiculo(void); 
+void alterar_cadastro(void); 
+void excluir_cadastro_v(void);
 void tela_clientes(void);
 void tela_entrada_saida(void);
 void tela_relatorios(void); 
@@ -15,7 +18,10 @@ int main(void){
    tela_menu_principal();  
    tela_sobre(); 
    tela_equipe(); 
-   tela_cadastrar_veiculo(); 
+   tela_cadastrar_veiculo();  
+   cadastrar_novo_veiculo();  
+   alterar_cadastro(); 
+   excluir_cadastro_v();
    tela_clientes(); 
    tela_entrada_saida(); 
    tela_relatorios();
@@ -109,16 +115,48 @@ void tela_menu_principal(void){
      printf("\n#                                                                                      #\n");
      printf("\n#                    = = = = Cadastrar Veículo = = = =                                 #\n"); 
      printf("\n# 1. Cadastrar um novo veículo                                                         #\n"); 
-     printf("\n# 2. Alterar cadastro de veículo                                                       #\n"); 
-     printf("\n# 3. Editar cadastro de veículo                                                        #\n"); 
-     printf("\n# 4. Excluir cadastro de veículo                                                       #\n"); 
+     printf("\n# 2. Alterar/editar cadastro de veículo                                                #\n"); 
+     printf("\n# 3. Excluir cadastro de veículo                                                       #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\n#Qual sua opcao?:"); 
      scanf("%c",&op);
      getchar();
   }  
-  
+  void cadastrar_novo_veiculo(void){  
+     system("clear||cls");
+     printf("\n");   
+     printf("\n########################################################################################\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n# Nome do motorista:                                                                   #\n"); 
+     printf("\n# Contato do motorista:                                                                #\n");  
+     printf("\n# Marca do veículo:                                                                    #\n"); 
+     printf("\n# Placa do veículo:                                                                    #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n"); 
+     printf("\n"); 
+     getchar(); 
+  }
+  void alterar_cadastro(void){ 
+     system("clear||cls");
+     printf("\n");   
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n");  
+     printf("\n# Nome do motorista para alterar:                                                      #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\n"); 
+     getchar(); 
+  } 
+  void excluir_cadastro_v(void){ 
+     system("clear||cls");
+     printf("\n");   
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n");  
+     printf("\n# Nome do motorista para excluir:                                                      #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+  }
 
   void tela_entrada_saida(void){  
     system("clear||cls");
