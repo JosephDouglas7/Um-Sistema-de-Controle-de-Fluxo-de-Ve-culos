@@ -28,6 +28,42 @@ int main(void){
    return 0;
 }  
 
+void pausa() {
+    sleep(60); // Pausa por 1 minuto
+}
+
+
+char menu_principal(void){  
+  char op;  
+  do{
+     op = tela_menu_principal();
+    switch(op){ 
+      case '1': 
+        tela_cadastrar_veiculo(); 
+        pausa();
+        break; 
+      case '2':  
+        tela_entrada_saida(); 
+        pausa();
+        break;  
+      case '3': 
+       tela_relatorios(); 
+       pausa();
+       break; 
+      case '4': 
+       tela_sobre(); 
+       pausa();
+       break; 
+      case '5': 
+       tela_equipe(); 
+       pausa();
+       break;
+    }
+  } while (op != '0');
+  return 0; 
+}
+
+
 
 void tela_menu_principal(void){ 
    char op; 
@@ -50,11 +86,32 @@ void tela_menu_principal(void){
    printf("\n#      3.Relatórios                                 #\n");  
    printf("\n#      4.Sobre                                      #\n"); 
    printf("\n#      5.Equipe                                     #\n");
-   printf("\n#Qual sua opcao?:"); 
-   scanf("%c",&op); 
+   printf("\nQual sua opcao?:"); 
+   scanf("%s",&op); 
    getchar();   
+   return op;
 }   
    
+
+char tela_cadastrar_veiculo(void) {
+    char opcao;
+    do {
+        opcao = cadastrar_novo_veiculo();
+        switch(opcao) { 
+            case '1': 	cadastrar_novo_veiculo();  
+                        break;
+            case '2':   alterar_cadastro();   
+                        break;
+            case '3': 	excluir_cadastro_v(); 
+                        
+                        break;
+        } 		
+    } while (opcao != '4'); 
+    return 0;
+}
+
+
+
 
    void tela_sobre(void) {
        system("clear||cls");
@@ -119,9 +176,10 @@ void tela_menu_principal(void){
      printf("\n# 3. Excluir cadastro de veículo                                                       #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
-     printf("\n#Qual sua opcao?:"); 
+     printf("\nQual sua opcao?:"); 
      scanf("%c",&op);
-     getchar();
+     getchar(); 
+     return op;
   }  
   void cadastrar_novo_veiculo(void){  
      system("clear||cls");
