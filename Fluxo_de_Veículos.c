@@ -1,18 +1,19 @@
-#Bibliotecas  
+//Bibliotecas  
 
 #include<stdio.h> 
 #include<stdlib.h> 
+#include<unistd.h>
 
-void tela_menu_principal(void); 
+char tela_menu_principal(void); 
 void tela_sobre(void);  
 void tela_equipe(void);
-void tela_cadastrar_veiculo(void); 
+char tela_cadastrar_veiculo(void); 
 void cadastrar_novo_veiculo(void); 
-void alterar_cadastro(void); 
-void excluir_cadastro_v(void);
+char alterar_cadastro(void); 
+char excluir_cadastro_v(void);
 void tela_clientes(void);
 void tela_entrada_saida(void);
-void tela_relatorios(void); 
+char tela_relatorios(void); 
 
 int main(void){ 
    tela_menu_principal();  
@@ -65,7 +66,7 @@ char menu_principal(void){
 
 
 
-void tela_menu_principal(void){ 
+char tela_menu_principal(void){ 
    char op; 
    system("clear||crl"); 
    printf("\n"); 
@@ -165,7 +166,7 @@ char tela_cadastrar_veiculo(void) {
   } 
   
 
-   void tela_cadastrar_veiculo(void){ 
+   char tela_cadastrar_veiculo(void){ 
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n"); 
@@ -197,7 +198,7 @@ char tela_cadastrar_veiculo(void) {
      sleep(1); 
      return 0;
   }
-  void alterar_cadastro(void){ 
+  char alterar_cadastro(void){ 
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n");  
@@ -210,7 +211,7 @@ char tela_cadastrar_veiculo(void) {
      sleep(1); 
      return 0;
   } 
-  void excluir_cadastro_v(void){ 
+  char excluir_cadastro_v(void){ 
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n");  
@@ -242,7 +243,7 @@ char tela_cadastrar_veiculo(void) {
   }  
   
 
-  void tela_relatorios(void){  
+  char tela_relatorios(void){  
     char op;
     system("clear||cls");
     printf("\n"); 
