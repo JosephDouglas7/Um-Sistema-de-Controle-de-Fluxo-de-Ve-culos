@@ -193,7 +193,9 @@ char tela_cadastrar_veiculo(void) {
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n"); 
      printf("\n"); 
-     getchar(); 
+     getchar();  
+     sleep(1); 
+     return 0;
   }
   void alterar_cadastro(void){ 
      system("clear||cls");
@@ -204,7 +206,9 @@ char tela_cadastrar_veiculo(void) {
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\n"); 
-     getchar(); 
+     getchar();  
+     sleep(1); 
+     return 0;
   } 
   void excluir_cadastro_v(void){ 
      system("clear||cls");
@@ -214,6 +218,8 @@ char tela_cadastrar_veiculo(void) {
      printf("\n# Nome do motorista para excluir:                                                      #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
+     sleep(1); 
+     return 0;
   }
 
   void tela_entrada_saida(void){  
@@ -228,9 +234,11 @@ char tela_cadastrar_veiculo(void) {
     printf("\n#  4. Excluir cadastro                                                                 #\n");  
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n"); 
-    printf("\n#Qual sua opcao?:"); 
+    printf("\nQual sua opcao?:"); 
     scanf("%c",&op);  
-    getchar();
+    getchar(); 
+    sleep(1); 
+    return 0;
   }  
   
 
@@ -245,7 +253,9 @@ char tela_cadastrar_veiculo(void) {
     printf("\n#    2. Entrada_e_Saída_de_veículos                                                    #\n"); 
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n");
-    printf("\n#Qual sua opcao?:"); 
+    printf("\nQual sua opcao?:"); 
     scanf("%c",&op);  
-    getchar();   
+    getchar(); 
+    sleep(1); 
+    return 0;
   }
