@@ -6,13 +6,13 @@
 
 char tela_menu_principal(void); 
 void tela_sobre(void);  
-void tela_equipe(void);
+void tela_equipe(void); 
+char modulo_cadastrar_veiculo(void);
 char tela_cadastrar_veiculo(void); 
-void cadastrar_novo_veiculo(void); 
+char cadastrar_novo_veiculo(void); 
 char alterar_cadastro(void); 
 char excluir_cadastro_v(void);
-void tela_clientes(void);
-void tela_entrada_saida(void);
+char tela_entrada_saida(void);
 char tela_relatorios(void); 
 
 int main(void){ 
@@ -23,7 +23,6 @@ int main(void){
    cadastrar_novo_veiculo();  
    alterar_cadastro(); 
    excluir_cadastro_v();
-   tela_clientes(); 
    tela_entrada_saida(); 
    tela_relatorios();
    return 0;
@@ -94,10 +93,10 @@ char tela_menu_principal(void){
 }   
    
 
-char tela_cadastrar_veiculo(void) {
+char modulo_cadastrar_veiculo(void){
     char opcao;
     do {
-        opcao = cadastrar_novo_veiculo();
+        opcao = tela_cadastrar_veiculo();
         switch(opcao) { 
             case '1': 	cadastrar_novo_veiculo();  
                         break;
@@ -166,7 +165,8 @@ char tela_cadastrar_veiculo(void) {
   } 
   
 
-   char tela_cadastrar_veiculo(void){ 
+   char tela_cadastrar_veiculo(void){  
+     char op;
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n"); 
@@ -182,7 +182,7 @@ char tela_cadastrar_veiculo(void) {
      getchar(); 
      return op;
   }  
-  void cadastrar_novo_veiculo(void){  
+  char cadastrar_novo_veiculo(void){  
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n"); 
@@ -223,7 +223,7 @@ char tela_cadastrar_veiculo(void) {
      return 0;
   }
 
-  void tela_entrada_saida(void){  
+  char tela_entrada_saida(void){  
     system("clear||cls");
     printf("\n");    
     printf("\n########################################################################################\n"); 
