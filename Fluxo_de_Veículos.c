@@ -223,7 +223,8 @@ char modulo_cadastrar_veiculo(void){
      return 0;
   }
 
-  char tela_entrada_saida(void){  
+  char tela_entrada_saida(void){   
+    char op;
     system("clear||cls");
     printf("\n");    
     printf("\n########################################################################################\n"); 
