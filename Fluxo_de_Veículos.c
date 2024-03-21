@@ -12,7 +12,10 @@ char tela_cadastrar_veiculo(void);
 char cadastrar_novo_veiculo(void); 
 char alterar_cadastro(void); 
 char excluir_cadastro_v(void);
-char tela_entrada_saida(void);
+char tela_entrada_saida(void); 
+char cadastrar_novo_e_s(void); 
+void alterar_e_s(void); 
+void excluir_e_s(void);
 char tela_relatorios(void); 
 
 int main(void){ 
@@ -24,6 +27,8 @@ int main(void){
    alterar_cadastro(); 
    excluir_cadastro_v();
    tela_entrada_saida(); 
+   cadastrar_novo_e_s(); 
+   alterar_e_s();
    tela_relatorios();
    return 0;
 }  
@@ -218,7 +223,8 @@ char modulo_cadastrar_veiculo(void){
      printf("\n#                                                                                      #\n");  
      printf("\n# Nome do motorista para excluir:                                                      #\n"); 
      printf("\n#                                                                                      #\n"); 
-     printf("\n########################################################################################\n");  
+     printf("\n########################################################################################\n"); 
+     getchar();  
      sleep(1); 
      return 0;
   }
@@ -231,8 +237,7 @@ char modulo_cadastrar_veiculo(void){
     printf("\n#                                                                                      #\n");
     printf("\n#                    = = = = =  Entrada/Saída de veículos = = = = =                    #\n");
     printf("\n#  1. Novo Cadastro                                                                    #\n"); 
-    printf("\n#  2. Alterar cadastro                                                                 #\n"); 
-    printf("\n#  3. Editar cadastro                                                                  #\n"); 
+    printf("\n#  2. Alterar/editar cadastro                                                          #\n"); 
     printf("\n#  4. Excluir cadastro                                                                 #\n");  
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n"); 
@@ -242,7 +247,48 @@ char modulo_cadastrar_veiculo(void){
     sleep(1); 
     return 0;
   }  
-  
+
+  char cadastrar_novo_e_s(void){ 
+     system("clear||cls");
+     printf("\n");    
+     printf("\n########################################################################################\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n# Marca do veículo:                                                                    #\n"); 
+     printf("\n# Placa do veículo:                                                                    #\n"); 
+     printf("\n# Cor do veículo:                                                                      #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     getchar();  
+     sleep(1); 
+     return 0;
+  }
+  void alterar_e_s(void){ 
+     system("clear||cls");
+     printf("\n");  
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n");  
+     printf("\n# Placa do veículo para alterar:                                                       #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\n"); 
+     getchar();  
+     sleep(1); 
+     return 0;
+  }
+
+  void excluir_e_s(void){ 
+     system("clear||cls");
+     printf("\n");  
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n"); 
+     printf("\n# Placa do veículo para excluir:                                                       #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\n"); 
+     getchar();  
+     sleep(1); 
+     return 0;
+  }
 
   char tela_relatorios(void){  
     char op;
