@@ -273,7 +273,7 @@ char modulo_cadastrar_veiculo(void){
      printf("\n"); 
      getchar();  
      sleep(1); 
-     return 0;
+     return;
   }
 
   void excluir_e_s(void){ 
@@ -287,7 +287,7 @@ char modulo_cadastrar_veiculo(void){
      printf("\n"); 
      getchar();  
      sleep(1); 
-     return 0;
+     return;
   }
 
   char tela_relatorios(void){  
