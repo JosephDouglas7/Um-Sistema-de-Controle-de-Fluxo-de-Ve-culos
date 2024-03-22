@@ -16,7 +16,9 @@ char tela_entrada_saida(void);
 char cadastrar_novo_e_s(void); 
 void alterar_e_s(void); 
 void excluir_e_s(void);
-char tela_relatorios(void); 
+char tela_relatorios(void);  
+void cadastro_veiculo_r(void); 
+void entrada_saida_r(void);
 
 int main(void){ 
    tela_menu_principal();  
@@ -29,7 +31,9 @@ int main(void){
    tela_entrada_saida(); 
    cadastrar_novo_e_s(); 
    alterar_e_s();
-   tela_relatorios();
+   tela_relatorios(); 
+   cadastro_veiculo_r(); 
+   entrada_saida_r();
    return 0;
 }  
 
@@ -306,4 +310,35 @@ char modulo_cadastrar_veiculo(void){
     getchar(); 
     sleep(1); 
     return 0;
-  }
+  } 
+  void cadastro_veiculo_r(void){ 
+     system("clear||cls");
+     printf("\n"); 
+     printf("\n########################################################################################\n"); 
+     printf("\n#                                                                                      #\n");  
+     printf("\n#                  = = = = Cadastro_de_veículos = = = =                                #\n"); 
+     printf("\n# Nome do motorista:                                                                   #\n"); 
+     printf("\n# Contato do motorista:                                                                #\n");  
+     printf("\n# Marca do veículo:                                                                    #\n"); 
+     printf("\n# Placa do veículo:                                                                    #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n"); 
+     getchar(); 
+     sleep(1); 
+     return;
+  } 
+ void entrada_saida_r(void){ 
+     system("clear||cls");
+     printf("\n"); 
+     printf("\n########################################################################################\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n#            = = = = Entrada e saída de veículos = = = =                               #\n"); 
+     printf("\n# Marca do veículo:                                                                    #\n"); 
+     printf("\n# Placa do veículo:                                                                    #\n"); 
+     printf("\n# Cor do veículo:                                                                      #\n");       
+     printf("\n#                                                                                      #\n");  
+     printf("\n########################################################################################\n"); 
+     getchar(); 
+     sleep(1);  
+     return;
+ } 
