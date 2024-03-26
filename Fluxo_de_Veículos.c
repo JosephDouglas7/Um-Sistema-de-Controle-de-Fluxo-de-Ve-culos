@@ -23,7 +23,8 @@ void entrada_saida_r(void);
 int main(void){ 
    tela_menu_principal();  
    tela_sobre(); 
-   tela_equipe(); 
+   tela_equipe();  
+   modulo_cadastrar_veiculo();
    tela_cadastrar_veiculo();  
    cadastrar_novo_veiculo();  
    alterar_cadastro(); 
