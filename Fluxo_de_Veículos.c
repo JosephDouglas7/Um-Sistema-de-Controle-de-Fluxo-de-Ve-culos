@@ -180,7 +180,7 @@ char tela_menu_principal(void){
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\nQual sua opcao?:"); 
-     scanf("%c",&op);
+     scanf("%s",&op);
      getchar(); 
      return op;
   }  
@@ -239,7 +239,7 @@ char tela_menu_principal(void){
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n"); 
     printf("\nQual sua opcao?:"); 
-    scanf("%c",&op);  
+    scanf("%s",&op);  
     getchar(); 
     sleep(1); 
     return 0;
@@ -299,7 +299,7 @@ char tela_menu_principal(void){
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n");
     printf("\nQual sua opcao?:"); 
-    scanf("%c",&op);  
+    scanf("%s",&op);  
     getchar(); 
     sleep(1); 
     return 0;
