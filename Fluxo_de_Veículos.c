@@ -7,7 +7,7 @@
 char tela_menu_principal(void); 
 void tela_sobre(void);  
 void tela_equipe(void); 
-char modulo_cadastrar_veiculo(void);
+//char modulo_cadastrar_veiculo(void);
 char tela_cadastrar_veiculo(void); 
 char cadastrar_novo_veiculo(void); 
 char alterar_cadastro(void); 
@@ -44,14 +44,26 @@ void pausa() {
 
 
 char menu_principal(void){  
-  char op;  
+  char op,op2;  
   do{
      op = tela_menu_principal();
     switch(op){ 
       case '1': 
-        tela_cadastrar_veiculo(); 
-        pausa();
-        break; 
+        op2= tela_cadastrar_veiculo(); 
+         switch(op2){ 
+            case '1': 	cadastrar_novo_veiculo();   
+                        pause();
+                        break;
+            case '2':   alterar_cadastro(); 
+                        pause();
+                        break;
+            case '3': 	excluir_cadastro_v();  
+                        pause();
+                        break;
+        } 		
+    } while (opcao != '4'); 
+    return 0;
+  }
       case '2':  
         tela_entrada_saida(); 
         pausa();
@@ -101,26 +113,6 @@ char tela_menu_principal(void){
    getchar();   
    return op;
 }   
-   
-
-char modulo_cadastrar_veiculo(void){
-    char opcao;
-    do {
-        opcao = tela_cadastrar_veiculo();
-        switch(opcao) { 
-            case '1': 	cadastrar_novo_veiculo();  
-                        break;
-            case '2':   alterar_cadastro();   
-                        break;
-            case '3': 	excluir_cadastro_v(); 
-                        
-                        break;
-        } 		
-    } while (opcao != '4'); 
-    return 0;
-}
-
-
 
 
    void tela_sobre(void) {
