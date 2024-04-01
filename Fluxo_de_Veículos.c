@@ -2,11 +2,10 @@
 
 #include<stdio.h> 
 #include<stdlib.h> 
-#include<unistd.h>
+#include<unistd.h> 
+#include<string.h>
 
 char tela_menu_principal(void); 
-void tela_sobre(void);  
-void tela_equipe(void); 
 char tela_cadastrar_veiculo(void); 
 char alterar_cadastro(void); 
 char excluir_cadastro_v(void);
@@ -14,54 +13,47 @@ char tela_entrada_saida(void);
 void alterar_e_s(void); 
 void excluir_e_s(void);
 char tela_relatorios(void);  
+void tela_sobre(void);  
+void tela_equipe(void);  
 
-
-int main(void){ 
-   tela_menu_principal();  
-   tela_sobre(); 
-   tela_equipe();  
-   tela_cadastrar_veiculo();  
-   alterar_cadastro(); 
-   excluir_cadastro_v();
-   tela_entrada_saida(); 
-   alterar_e_s();
-   tela_relatorios(); 
-   return 0;
-}  
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
 
 
-char menu_principal(void){  
-  char op,op2;  
-  do{
-     op = tela_menu_principal();
-    switch(op){ 
-      case '1': tela_cadastrar_veiculo(); 
-                pause(); 
-                break;
-      case '2': tela_entrada_saida(); 
-                pausa();
-                break;  
-      case '3': tela_relatorios(); 
-                pausa();
-                break; 
-      case '4': tela_sobre(); 
-                pausa();
-                break; 
-      case '5': tela_equipe(); 
-                pausa();
-                break;
-    }
-  } while (op != '0');
-  return 0; 
+char menu_principal(void);
+
+
+int main(void){ 
+  menu_principal();  
+  return 0;  
 }
 
 
+char menu_principal(void){  
+  int op;  
+  do{
+     op = tela_menu_principal();
+    switch(op){ 
+      case  1 : tela_cadastrar_veiculo(); 
+                break;
+      case  2 : tela_entrada_saida(); 
+                break;  
+      case  3 : tela_relatorios(); 
+                break; 
+      case  4 : tela_sobre(); 
+                break; 
+      case  5 : tela_equipe(); 
+                break;
+    }
+  } while (op != 5); 
+  return 0; 
+}  
+
+
 char tela_menu_principal(void){ 
-   char op; 
+   int op; 
    system("clear||crl"); 
    printf("\n"); 
    printf("\n#####################################################\n");
@@ -82,7 +74,7 @@ char tela_menu_principal(void){
    printf("\n#      4.Sobre                                      #\n"); 
    printf("\n#      5.Equipe                                     #\n");
    printf("\nQual sua opcao?:"); 
-   scanf("%s",&op); 
+   scanf("%d",&op); 
    getchar();   
    return op;
 }   
@@ -108,9 +100,10 @@ char tela_menu_principal(void){
        printf("\n#                                                  #\n");
        printf("\n####################################################\n");
        printf("\n"); 
-       getchar(); 
+       getchar();  
+       return;
 } 
-  
+
 
   void tela_equipe(void){ 
      system("clear||cls");
@@ -136,14 +129,15 @@ char tela_menu_principal(void){
      printf("\n#                                                                                      #\n");
      printf("\n########################################################################################");  
      printf("\n"); 
-     getchar();
+     getchar();  
   } 
-  
+
 
    char tela_cadastrar_veiculo(void){  
-     char op;
+     char op; 
      system("clear||cls");
      printf("\n");   
+     do{
      printf("\n########################################################################################\n"); 
      printf("\n#                                                                                      #\n");
      printf("\n# Nome do motorista:                                                                   #\n"); 
@@ -153,13 +147,18 @@ char tela_menu_principal(void){
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\nQual sua opcao?:"); 
-     scanf("%s",&op);
+     scanf("%c",&op); 
+     switch(op){ 
+       case 1: tela_menu_principal(); 
+               break;
+     }
      getchar(); 
-     return op;
-  }  
+  }while(op!= '0'); 
+  return 0;
+}
 
-
-  char alterar_cadastro(void){ 
+  char alterar_cadastro(void){  
+     char op;
      system("clear||cls");
      printf("\n");   
      printf("\n########################################################################################\n");  
@@ -167,9 +166,15 @@ char tela_menu_principal(void){
      printf("\n# Nome do motorista para alterar:                                                      #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
-     printf("\n"); 
-     getchar();  
-     sleep(1); 
+     printf("\n");  
+     printf("\nQual sua opcao?:"); 
+     scanf("%s",&op);  
+     switch(op){ 
+        case 1: tela_menu_principal(); 
+                break;
+      }
+     getchar();   
+     
      return 0;
   }  
 
@@ -183,7 +188,6 @@ char tela_menu_principal(void){
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n"); 
      getchar();  
-     sleep(1); 
      return 0;
   }
 
@@ -203,7 +207,6 @@ char tela_menu_principal(void){
     printf("\nQual sua opcao?:"); 
     scanf("%s",&op);  
     getchar(); 
-    sleep(1); 
     return 0;
   }  
 
@@ -218,7 +221,6 @@ char tela_menu_principal(void){
      printf("\n########################################################################################\n");  
      printf("\n"); 
      getchar();  
-     sleep(1); 
      return;
   }
 
@@ -233,11 +235,10 @@ char tela_menu_principal(void){
      printf("\n########################################################################################\n");  
      printf("\n"); 
      getchar();  
-     sleep(1); 
      return;
   }
 
-  
+
  char tela_relatorios(void){  
     char op;
     system("clear||cls");
@@ -254,7 +255,5 @@ char tela_menu_principal(void){
     printf("\nQual sua opcao?:"); 
     scanf("%s",&op);  
     getchar(); 
-    sleep(1); 
     return 0;
   } 
- 
