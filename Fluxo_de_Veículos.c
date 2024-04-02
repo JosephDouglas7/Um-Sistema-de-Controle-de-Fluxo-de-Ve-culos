@@ -49,8 +49,6 @@ char menu_principal(void){
 }  
 
 
-
-
 char tela_menu_principal(void){ 
    char op; 
    system("clear||crl"); 
