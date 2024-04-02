@@ -5,11 +5,15 @@
 #include<unistd.h> 
 #include<string.h>
 
-char tela_menu_principal(void); 
-char tela_cadastrar_veiculo(void); 
+char tela_menu_principal(void);  
+char modulo_cadastrar_veiculo(void);
+char tela_cadastrar_veiculo(void);  
+char cadastrar_veiculo(void);
 char alterar_cadastro(void); 
-char excluir_cadastro_v(void);
+char excluir_cadastro_v(void); 
+char modulo_entrada_saida(void);
 char tela_entrada_saida(void); 
+char entrada_saida(void);
 void alterar_e_s(void); 
 void excluir_e_s(void);
 char tela_relatorios(void);  
@@ -32,22 +36,22 @@ int main(void){
 
 
 char menu_principal(void){  
-  int op;  
+  char op;  
   do{
      op = tela_menu_principal();
     switch(op){ 
-      case  1 : tela_cadastrar_veiculo(); 
+      case  '1' : tela_cadastrar_veiculo(); 
                 break;
-      case  2 : tela_entrada_saida(); 
+      case  '2' : tela_entrada_saida(); 
                 break;  
-      case  3 : tela_relatorios(); 
+      case  '3' : tela_relatorios(); 
                 break; 
-      case  4 : tela_sobre(); 
+      case  '4' : tela_sobre(); 
                 break; 
-      case  5 : tela_equipe(); 
+      case  '5' : tela_equipe(); 
                 break;
     }
-  } while (op != 5); 
+  } while (op != '5'); 
   return 0; 
 }  
 
@@ -55,7 +59,7 @@ char menu_principal(void){
 
 
 char tela_menu_principal(void){ 
-   int op; 
+   char op; 
    system("clear||crl"); 
    printf("\n"); 
    printf("\n#####################################################\n");
@@ -76,7 +80,7 @@ char tela_menu_principal(void){
    printf("\n#      4.Sobre                                      #\n"); 
    printf("\n#      5.Equipe                                     #\n");
    printf("\nQual sua opcao?:"); 
-   scanf("%d",&op); 
+   scanf("%c",&op); 
    getchar();   
    return op;
 }   
@@ -135,10 +139,43 @@ char tela_menu_principal(void){
 
 
    char tela_cadastrar_veiculo(void){  
-     int op; 
+     char op; 
      system("clear||cls");
      printf("\n");   
-     do{
+     printf("\n########################################################################################\n"); 
+     printf("\n#                  = = = = tela cadastrar veiculo = = = =                              #\n");
+     printf("\n# 1.cadastrar veiculo                                                                  #\n"); 
+     printf("\n# 2.alterar cadastro                                                                   #\n"); 
+     printf("\n# 3.excluir cadastro                                                                   #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\nQual sua opcao?:"); 
+     scanf("%c",&op);  
+     getchar();  
+     return 0;
+}  
+
+
+char modulo_cadastrar_veiculo(void){  
+  char op;  
+  do{
+     op = tela_cadastrar_veiculo();
+    switch(op){ 
+      case  '1' : cadastrar_veiculo(); 
+                break;
+      case  '2' : alterar_cadastro(); 
+                break;  
+      case  '3' : excluir_cadastro_v(); 
+                break; 
+    }
+  } while (op != '3'); 
+  return 0; 
+}  
+
+
+ char cadastrar_veiculo(void){  
+     system("clear||cls");
+     printf("\n");   
      printf("\n########################################################################################\n"); 
      printf("\n#                                                                                      #\n");
      printf("\n# Nome do motorista:                                                                   #\n"); 
@@ -146,136 +183,124 @@ char tela_menu_principal(void){
      printf("\n# Marca do veículo:                                                                    #\n"); 
      printf("\n# Placa do veículo:                                                                    #\n"); 
      printf("\n#                                                                                      #\n"); 
-     printf("\n########################################################################################\n");  
-     printf("\nQual sua opcao?:"); 
-     scanf("%d",&op); 
-     switch(op){ 
-       case 1: tela_menu_principal(); 
-               break; 
-       case 2: alterar_cadastro(); 
-               break;
-     }
+     printf("\n########################################################################################\n");   
      getchar(); 
-  }while(op!= 2); 
-  return 0;
+     return 0;
 }
 
+
   char alterar_cadastro(void){  
-     int op;
      system("clear||cls");
      printf("\n");   
-     do{ printf("\n########################################################################################\n");  
+     printf("\n########################################################################################\n");  
      printf("\n#                                                                                      #\n");  
      printf("\n# Nome do motorista para alterar:                                                      #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\n");  
-     printf("\nQual sua opcao?:"); 
-     scanf("%d",&op);  
-     switch(op){ 
-        case 1: tela_menu_principal(); 
-                break; 
-       case 2: excluir_cadastro_v(); 
-               break;
-     }
-     getchar();   
-  }while(op!=2); 
-  return 0;
+     getchar(); 
+     return 0;
 }
+
+
   char excluir_cadastro_v(void){  
-     int op;
      system("clear||cls");
      printf("\n");   
-     do{ printf("\n########################################################################################\n");  
+     printf("\n########################################################################################\n");  
      printf("\n#                                                                                      #\n");  
      printf("\n# Nome do motorista para excluir:                                                      #\n"); 
      printf("\n#                                                                                      #\n"); 
-     printf("\n########################################################################################\n");  
-     printf("\nQual sua opcao?:"); 
-     scanf("%d",&op); 
-     switch(op){ 
-      case 1: tela_menu_principal(); 
-              break; 
-    }
-     getchar();  
-  }while(op!=1);  
-  return 0;
+     printf("\n########################################################################################\n");    
+     getchar(); 
+     return 0;
 }
 
+
   char tela_entrada_saida(void){   
-    int op;
+    char op; 
     system("clear||cls");
     printf("\n");    
-    do{ printf("\n########################################################################################\n"); 
+    printf("\n########################################################################################\n"); 
+    printf("\n#                                                                                      #\n");
+    printf("\n#                    = = = = =  Entrada/Saída de veículos = = = = =                    #\n");
+    printf("\n#  1.Cadastrar e.s                                                                     #\n"); 
+    printf("\n#  2.Alterar e.s                                                                       #\n"); 
+    printf("\n#  3.Excluir e.s                                                                       #\n");  
+    printf("\n#                                                                                      #\n"); 
+    printf("\n########################################################################################\n");  
+    printf("\nQual sua opcao?:"); 
+    scanf("%c",&op); 
+    getchar();  
+    return 0;
+}    
+
+       
+char modulo_entrada_saida(void){  
+  char op;  
+  do{
+     op = tela_entrada_saida();
+    switch(op){ 
+      case  '1' : entrada_saida(); 
+                break;
+      case  '2' : alterar_e_s(); 
+                break;  
+      case  '3' : excluir_e_s(); 
+                break; 
+    }
+  } while (op != '3'); 
+  return 0; 
+}  
+
+       
+char entrada_saida(void){   
+    system("clear||cls");
+    printf("\n");    
+    printf("\n########################################################################################\n"); 
     printf("\n#                                                                                      #\n");
     printf("\n#                    = = = = =  Entrada/Saída de veículos = = = = =                    #\n");
     printf("\n#  Marca do veículo:                                                                   #\n"); 
     printf("\n#  Placa do veículo:                                                                   #\n"); 
     printf("\n#  Cor do veículo:                                                                     #\n");  
     printf("\n#                                                                                      #\n"); 
-    printf("\n########################################################################################\n"); 
-    printf("\nQual sua opcao?:"); 
-    scanf("%d",&op);   
-    switch(op){ 
-      case 1: alterar_e_s(); 
-              break;  
-      case 2: tela_menu_principal();  
-              break;
-       }
+    printf("\n########################################################################################\n");  
     getchar();  
-  }while(op!=2);
-  return 0;
+    return 0;
 }  
 
+       
   void alterar_e_s(void){  
-     int op;
      system("clear||cls");
      printf("\n");  
-     do{      printf("\n########################################################################################\n");  
+     printf("\n########################################################################################\n");  
      printf("\n#                                                                                      #\n");  
      printf("\n# Placa do veículo para alterar:                                                       #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
      printf("\n");  
-     printf("\nQual sua opcao?:"); 
-     scanf("%d",&op);  
-     switch(op){ 
-        case 1: excluir_e_s(); 
-                break;  
-        case 2: tela_menu_principal();  
-                break;
-           }
      getchar();  
      return;
-  }while(op!=2); 
 }
 
+
   void excluir_e_s(void){  
-     int op;
      system("clear||cls");
      printf("\n");  
-     do{ printf("\n########################################################################################\n");  
+     printf("\n########################################################################################\n");  
      printf("\n#                                                                                      #\n"); 
      printf("\n# Placa do veículo para excluir:                                                       #\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\n########################################################################################\n");  
-     printf("\n");  
-     printf("\nQual sua opcao?:"); 
-     scanf("%d",&op);  
-     switch(op){ 
-        case 1: tela_entrada_saida(); 
-                break;  
-             }
+     printf("\n");   
      getchar();  
      return;
-  }while(op!=1);
 }
+
 
  char tela_relatorios(void){  
     int op;
     system("clear||cls");
     printf("\n"); 
-    do{ printf("\n########################################################################################\n"); 
+    printf("\n########################################################################################\n"); 
     printf("\n#                                                                                      #\n"); 
     printf("\n#                    = = = = = Relatórios = = = = =                                    #\n"); 
     printf("\n#  Nome do motorista:                                                                  #\n");  
@@ -284,13 +309,6 @@ char tela_menu_principal(void){
     printf("\n#  Placa do veículo:                                                                   #\n");   
     printf("\n#  Cor do veículo:                                                                     #\n"); 
     printf("\n########################################################################################\n");
-    printf("\nQual sua opcao?:"); 
-    scanf("%d",&op);   
-    switch(op){ 
-      case 1: tela_menu_principal(); 
-              break;  
-              }
     getchar(); 
-  }while(op!=1);  
    return 0;
 }
