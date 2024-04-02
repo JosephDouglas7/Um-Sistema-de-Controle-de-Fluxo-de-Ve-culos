@@ -3,14 +3,10 @@
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<unistd.h> 
-#include<string.h>
+#include<string.h> 
+#include"Cadastrar_veiculo.h"
 
-char tela_menu_principal(void);  
-char modulo_cadastrar_veiculo(void);
-char tela_cadastrar_veiculo(void);  
-char cadastrar_veiculo(void);
-char alterar_cadastro(void); 
-char excluir_cadastro_v(void); 
+char tela_menu_principal(void);   
 char modulo_entrada_saida(void);
 char tela_entrada_saida(void); 
 char entrada_saida(void);
