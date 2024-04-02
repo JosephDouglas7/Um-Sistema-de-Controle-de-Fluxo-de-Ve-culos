@@ -1,4 +1,4 @@
-
+char tela_relatorios(void); 
 
 char tela_relatorios(void){  
     int op;
