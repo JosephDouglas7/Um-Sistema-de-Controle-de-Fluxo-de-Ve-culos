@@ -5,7 +5,8 @@
 #include<unistd.h> 
 #include<string.h> 
 #include"Cadastrar_veiculo.h" 
-#include"Entrada_saida_V.h"
+#include"Entrada_saida_V.h" 
+#include"Relatorios.h"
 
 char tela_menu_principal(void);   
 char tela_relatorios(void);  
@@ -128,21 +129,3 @@ char tela_menu_principal(void){
      printf("\n"); 
      getchar();  
   } 
-
-
- char tela_relatorios(void){  
-    int op;
-    system("clear||cls");
-    printf("\n"); 
-    printf("\n########################################################################################\n"); 
-    printf("\n#                                                                                      #\n"); 
-    printf("\n#                    = = = = = Relatórios = = = = =                                    #\n"); 
-    printf("\n#  Nome do motorista:                                                                  #\n");  
-    printf("\n#  Contato do motorista:                                                               #\n");  
-    printf("\n#  Marca do veículo:                                                                   #\n");  
-    printf("\n#  Placa do veículo:                                                                   #\n");   
-    printf("\n#  Cor do veículo:                                                                     #\n"); 
-    printf("\n########################################################################################\n");
-    getchar(); 
-   return 0;
-}
