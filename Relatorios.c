@@ -1,4 +1,6 @@
-char tela_relatorios(void); 
+#include<stdio.h>  
+#include"Relatorios.h" 
+
 
 char tela_relatorios(void){  
     int op;
