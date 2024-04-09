@@ -47,7 +47,7 @@ char menu_principal(void){
       case  '6' : finalizar();  
                   break;
     }
-  } while (op != '5'); 
+  } while (op != '6'); 
   return 0; 
 }  
 
