@@ -12,7 +12,7 @@ char tela_cadastrar_veiculo(void){
      printf("\n# 1.cadastrar veiculo                                                                  #\n"); 
      printf("\n# 2.alterar cadastro                                                                   #\n"); 
      printf("\n# 3.excluir cadastro                                                                   #\n"); 
-     printf("\n#                                                                                      #\n"); 
+     printf("\n# 4.retornar ao menu principal                                                         #\n"); 
      printf("\n########################################################################################\n"); 
      printf("\nQual sua opcao?:"); 
      scanf("%c",&op);  
@@ -31,9 +31,11 @@ char modulo_cadastrar_veiculo(void){
       case  '2' : alterar_cadastro(); 
                   break;  
       case  '3' : excluir_cadastro_v(); 
-                  break; 
+                  break;  
+      case  '4' : tela_menu_principal(); 
+                  break;
     }
-  } while (op != '3'); 
+  } while (op != '4'); 
   return 0;
 }  
 
@@ -49,7 +51,7 @@ char modulo_cadastrar_veiculo(void){
     printf("\n# Placa do veículo:                                                                    #\n"); 
     printf("\n#                                                                                      #\n"); 
     printf("\n########################################################################################\n"); 
-    getchar(); getchar(); getchar(); 
+    getchar(); 
     return 0;
 }
 
