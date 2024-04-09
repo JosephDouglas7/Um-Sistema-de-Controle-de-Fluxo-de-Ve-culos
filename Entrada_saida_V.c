@@ -13,7 +13,7 @@ char tela_entrada_saida(void){
     printf("\n#  1.Cadastrar e.s                                                                     #\n"); 
     printf("\n#  2.Alterar e.s                                                                       #\n"); 
     printf("\n#  3.Excluir e.s                                                                       #\n");  
-    printf("\n#  4.returnar ao menu principal                                                        #\n"); 
+    printf("\n#  4.retornar ao menu principal                                                        #\n"); 
     printf("\n########################################################################################\n");  
     printf("\nQual sua opcao?:"); 
     scanf("%c",&op); 
