@@ -8,6 +8,7 @@
 #include"Entrada_saida_V.h" 
 #include"Relatorios.h"
 
+
 char tela_menu_principal(void);   
 char tela_relatorios(void);  
 void tela_sobre(void);  
@@ -116,10 +117,10 @@ char tela_menu_principal(void){
      printf("\n#                                                                                      #\n");
      printf("\n#                    = Sistema de controle de fluxo de veículos =                      #\n");
      printf("\n#                                                                                      #\n"); 
-     printf("\n#    Este projeto exemplo foi desenvolvido por:                                        #\n"); 
+     printf("\n# Este projeto foi desenvolvido por:                                                   #\n"); 
      printf("\n#                                                                                      #\n"); 
-     printf("\n#  Aluno: Joseph Douglas                                                               #\n"); 
-     printf("\n#  Email: joseph.batista.066@ufrn.edu.br                                               #\n"); 
+     printf("\n# Aluno: Joseph Douglas                                                                #\n"); 
+     printf("\n# Email: joseph.batista.066@ufrn.edu.br                                                #\n"); 
      printf("\n# Redes sociais:@josephdouglas                                                         #\n"); 
      printf("\n# Git: https://github.com/JosephDouglas7/Um-Sistema-de-Controle-de-Fluxo-de-Ve-culos   #\n"); 
      printf("\n#                                                                                      #\n");
