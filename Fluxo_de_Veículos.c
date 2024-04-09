@@ -13,7 +13,7 @@ char tela_menu_principal(void);
 char tela_relatorios(void);  
 void tela_sobre(void);  
 void tela_equipe(void);  
-
+void finalizar(void); 
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
@@ -43,7 +43,9 @@ char menu_principal(void){
       case  '4' : tela_sobre(); 
                 break; 
       case  '5' : tela_equipe(); 
-                break;
+                break; 
+      case  '6' : finalizar();  
+                  break;
     }
   } while (op != '5'); 
   return 0; 
@@ -127,4 +129,8 @@ char tela_menu_principal(void){
      printf("\n########################################################################################");  
      printf("\n"); 
      getchar();  
-  } 
+  }  
+  void finalizar(void){  
+      printf("Programa encerrado")
+
+  }
