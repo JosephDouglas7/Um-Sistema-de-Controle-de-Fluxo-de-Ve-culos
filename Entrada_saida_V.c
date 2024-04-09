@@ -32,9 +32,11 @@ char modulo_entrada_saida(void){
       case  '2' : alterar_e_s(); 
                 break;  
       case  '3' : excluir_e_s(); 
-                break; 
+                break;  
+      case  '4' : tela_menu_principal(); 
+                  break;
     }
-  } while (op != '3'); 
+  } while (op != '4'); 
   return 0; 
 }  
 
