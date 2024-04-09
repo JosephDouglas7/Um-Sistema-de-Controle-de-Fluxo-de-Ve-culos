@@ -7,13 +7,7 @@
 #include"Cadastrar_veiculo.h" 
 #include"Entrada_saida_V.h" 
 #include"Relatorios.h"
-
-
-char tela_menu_principal(void);   
-char tela_relatorios(void);  
-void tela_sobre(void);  
-void tela_equipe(void);  
-void finalizar(void); 
+#include"menus.h"
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
