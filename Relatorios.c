@@ -4,7 +4,6 @@
 
 
 char tela_relatorios(void){  
-    int op;
     system("clear||cls");
     printf("\n"); 
     printf("\n########################################################################################\n"); 
