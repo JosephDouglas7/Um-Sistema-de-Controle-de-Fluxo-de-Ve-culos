@@ -7,7 +7,8 @@
 #include"Cadastrar_veiculo.h" 
 #include"Entrada_saida_V.h" 
 #include"Relatorios.h"
-#include"menus.h"
+#include"menus.h" 
+#include"Finalizar.h"
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
@@ -125,9 +126,3 @@ char tela_menu_principal(void){
      printf("\n"); 
      getchar();  
   }  
-  void finalizar(void){   
-      system("clear||cls");
-      printf("\n");
-      printf("Programa encerrado")
-
-  }
