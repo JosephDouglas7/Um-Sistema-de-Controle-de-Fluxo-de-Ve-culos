@@ -72,7 +72,8 @@ char tela_menu_principal(void){
    printf("\n#      2.Módulo entrada e saída                     #\n"); 
    printf("\n#      3.Relatórios                                 #\n");  
    printf("\n#      4.Sobre                                      #\n"); 
-   printf("\n#      5.Equipe                                     #\n");
+   printf("\n#      5.Equipe                                     #\n"); 
+   printf("\n#      6.Encerrar programa                          #\n");
    printf("\nQual sua opcao?:"); 
    scanf("%c",&op); 
    getchar();   
@@ -130,7 +131,9 @@ char tela_menu_principal(void){
      printf("\n"); 
      getchar();  
   }  
-  void finalizar(void){  
+  void finalizar(void){   
+      system("clear||cls");
+      printf("\n");
       printf("Programa encerrado")
 
   }
