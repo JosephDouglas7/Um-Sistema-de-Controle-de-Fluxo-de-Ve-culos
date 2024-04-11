@@ -28,15 +28,17 @@ char modulo_entrada_saida(void){
      op = tela_entrada_saida();
     switch(op){ 
       case  '1' : entrada_saida(); 
-                break;
-      case  '2' : alterar_e_s(); 
-                break;  
-      case  '3' : excluir_e_s(); 
-                break;  
-      case  '4' : tela_menu_principal(); 
+                  break; 
+      case  '2' : pesquisar_e_s(); 
+                  break;
+      case  '3' : alterar_e_s(); 
+                  break;  
+      case  '4' : excluir_e_s(); 
+                  break;  
+      case  '5' : tela_menu_principal(); 
                   break;
     }
-  } while (op != '4'); 
+  } while (op != '5'); 
   return 0; 
 }  
 
@@ -56,6 +58,19 @@ char entrada_saida(void){
     return 0;
 }  
 
+
+char pesquisar_e_s(void){ 
+     system("clear||cls");
+     printf("\n");  
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n");  
+     printf("\n# Pesquisar entrada/saida.v:                                                           #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\n");  
+     getchar();  
+     return;
+}
 
   void alterar_e_s(void){  
      system("clear||cls");
