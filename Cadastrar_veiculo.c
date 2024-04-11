@@ -9,10 +9,11 @@ char tela_cadastrar_veiculo(void){
      printf("\n");   
      printf("\n########################################################################################\n"); 
      printf("\n#                  = = = = tela cadastrar veiculo = = = =                              #\n");
-     printf("\n# 1.cadastrar veiculo                                                                  #\n"); 
-     printf("\n# 2.alterar cadastro                                                                   #\n"); 
-     printf("\n# 3.excluir cadastro                                                                   #\n"); 
-     printf("\n# 4.retornar ao menu principal                                                         #\n"); 
+     printf("\n# 1.cadastrar veiculo                                                                  #\n");  
+     printf("\n# 2.pesquisar cadastro.v                                                               #\n"); 
+     printf("\n# 3.alterar cadastro.v                                                                 #\n"); 
+     printf("\n# 4.excluir cadastro.v                                                                 #\n"); 
+     printf("\n# 5.retornar ao menu principal                                                         #\n"); 
      printf("\n########################################################################################\n"); 
      printf("\nQual sua opcao?:"); 
      scanf("%c",&op);  
@@ -27,15 +28,17 @@ char modulo_cadastrar_veiculo(void){
      op = tela_cadastrar_veiculo();
     switch(op){ 
       case  '1' : cadastrar_veiculo(); 
+                  break; 
+      case  '2' : pesquisar_cadastro_v(); 
                   break;
-      case  '2' : alterar_cadastro(); 
+      case  '3' : alterar_cadastro(); 
                   break;  
-      case  '3' : excluir_cadastro_v(); 
+      case  '4' : excluir_cadastro_v(); 
                   break;  
-      case  '4' : tela_menu_principal(); 
+      case  '5' : tela_menu_principal(); 
                   break;
     }
-  } while (op != '4'); 
+  } while (op != '5'); 
   return 0;
 }  
 
@@ -53,6 +56,20 @@ char modulo_cadastrar_veiculo(void){
     printf("\n########################################################################################\n"); 
     getchar(); 
     return 0;
+}
+
+
+char pesquisar_cadastro_v(void){ 
+     system("clear||cls");
+     printf("\n");  
+     printf("\n########################################################################################\n");  
+     printf("\n#                                                                                      #\n");  
+     printf("\n# Pesquisar cadastro.v:                                                                #\n"); 
+     printf("\n#                                                                                      #\n"); 
+     printf("\n########################################################################################\n");  
+     printf("\n");  
+     getchar();  
+     return 0;
 }
 
 
