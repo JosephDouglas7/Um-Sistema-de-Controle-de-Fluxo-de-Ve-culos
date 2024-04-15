@@ -63,7 +63,7 @@ char tela_menu_principal(void){
    printf("\n#####################################################\n");
    printf("\n#                                                   #\n"); 
    printf("\n#   = Sistema de controle de fluxo de veículos =    #\n"); 
-   printf("\n#      1.Módulo cadastro de veículos                #\n"); 
+   printf("\n#      1.Módulo cadastro de veículos/cadastro de C. #\n"); 
    printf("\n#      2.Módulo entrada e saída                     #\n"); 
    printf("\n#      3.Relatórios                                 #\n");  
    printf("\n#      4.Sobre                                      #\n"); 
