@@ -9,7 +9,7 @@ char tela_cadastrar_veiculo(void){
      printf("\n");   
      printf("\n########################################################################################\n"); 
      printf("\n#                  = = = = tela cadastrar veiculo/cadast.c = = = =                     #\n");
-     printf("\n# 1.cadastrar veiculo                                                                  #\n");  
+     printf("\n# 1.cadastrar veiculo/cadastrar cliente                                                #\n");  
      printf("\n# 2.pesquisar cadastro.v                                                               #\n"); 
      printf("\n# 3.alterar cadastro.v                                                                 #\n"); 
      printf("\n# 4.excluir cadastro.v                                                                 #\n"); 
@@ -52,7 +52,8 @@ char modulo_cadastrar_veiculo(void){
     printf("\n# Contato do motorista:                                                                #\n"); 
     printf("\n# Marca do veículo:                                                                    #\n"); 
     printf("\n# Placa do veículo:                                                                    #\n"); 
-    printf("\n# CPF:                                                                                 #\n"); 
+    printf("\n# CPF:                                                                                 #\n");  
+    printf("\n# Email:                                                                               #\n");  
     printf("\n########################################################################################\n"); 
     getchar(); 
     return 0;
