@@ -2,6 +2,7 @@
 #include<stdlib.h> 
 #include"Entrada_saida_V.h" 
 
+
 typedef struct {
   char marca_V[20]; 
   char placa_V[15]; 
