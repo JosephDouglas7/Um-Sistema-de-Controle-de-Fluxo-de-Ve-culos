@@ -3,6 +3,15 @@
 #include"Cadastrar_veiculo.h" 
 
 
+typedef struct {
+  char nome[100];
+  char celular[15]; 
+  char marca_V[20]; 
+  char placa_V[15]; 
+  char cpf[11];
+} Cadastrar_V; 
+
+
 char tela_cadastrar_veiculo(void){ 
      char op; 
      system("clear||cls");
@@ -47,15 +56,19 @@ char modulo_cadastrar_veiculo(void){
     system("clear||cls");
     printf("\n");
     printf("\n########################################################################################\n"); 
-    printf("\n#                                                                                      #\n");
-    printf("\n# Nome do motorista:                                                                   #\n"); 
-    printf("\n# Contato do motorista:                                                                #\n"); 
-    printf("\n# Marca do veículo:                                                                    #\n"); 
-    printf("\n# Placa do veículo:                                                                    #\n"); 
-    printf("\n# CPF:                                                                                 #\n");  
-    printf("\n# Email:                                                                               #\n");  
-    printf("\n########################################################################################\n"); 
-    getchar(); 
+    printf("\nNome do motorista:");  
+    scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_cadastrar_v->nome);
+    printf("\nContato do motorista:");  
+    scanf(" %[0-9]", novo_cadastrar_v->celular);
+    printf("\nMarca do veículo:");  
+    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_cadastrar_v->marca_V);
+    printf("\nPlaca do veículo:");  
+    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_cadastrar_v->placa_V);
+    printf("\nCPF:"); 
+    scanf(" %[0-9]", novo_cadastrar_v->cpf);
+    getchar();  
+    sleep(1);    
+    free(novo_cadastrar_v); 
     return 0;
 }
 
