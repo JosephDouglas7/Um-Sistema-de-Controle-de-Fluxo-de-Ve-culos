@@ -1,6 +1,12 @@
 #include<stdio.h>   
 #include<stdlib.h> 
-#include"Entrada_saida_V.h"
+#include"Entrada_saida_V.h" 
+
+typedef struct {
+  char marca_V[20]; 
+  char placa_V[15]; 
+  char cor_V[20]; 
+} Entrada_saida_V; 
 
 
 char tela_entrada_saida(void){   
@@ -48,14 +54,16 @@ char entrada_saida(void){
     system("clear||cls");
     printf("\n");    
     printf("\n########################################################################################\n"); 
-    printf("\n#                                                                                      #\n");
     printf("\n#                    = = = = =  Entrada/Saída de veículos = = = = =                    #\n");
-    printf("\n#  Marca do veículo:                                                                   #\n"); 
-    printf("\n#  Placa do veículo:                                                                   #\n"); 
-    printf("\n#  Cor do veículo:                                                                     #\n");  
-    printf("\n#                                                                                      #\n"); 
-    printf("\n########################################################################################\n");  
-    getchar();  
+    printf("\nMarca do veículo:");  
+    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->marca_V);
+    printf("\nPlaca do veículo:");  
+    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->placa_V);
+    printf("\nCor do veículo:");   
+    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->cor_V); 
+    getchar();   
+    sleep(1);    
+    free(novo_e_s_v); 
     return 0;
 }  
 
