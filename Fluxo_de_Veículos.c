@@ -1,5 +1,6 @@
 //Bibliotecas  
 
+
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<unistd.h> 
@@ -8,7 +9,18 @@
 #include"Entrada_saida_V.h" 
 #include"Relatorios.h"
 #include"menus.h" 
-#include"Finalizar.h"
+#include"Finalizar.h" 
+
+
+typedef struct cadastrar_v Cadastrar_V;
+
+typedef struct {
+  char nome[100];
+  char celular[15]; 
+  char marca_V[20]; 
+  char placa_V[15]; 
+  char cpf[11];
+};  
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
@@ -16,9 +28,12 @@ void pausa() {
 
 
 char menu_principal(void);
+char Cadastrar_veiculo(Cadastrar_V*,char); 
+char Pesquisar_cadastro_v(Cadastrar_V*,char);
 
-
-int main(void){ 
+int main(void){   
+  Cadastrar_V* al;
+  char *novo_cadastrar_v;
   menu_principal();  
   return 0;  
 }
@@ -30,17 +45,17 @@ char menu_principal(void){
      op = tela_menu_principal();
     switch(op){ 
       case  '1' : modulo_cadastrar_veiculo(); 
-                break;
-      case  '2' : modulo_entrada_saida(); 
-                break;  
-      case  '3' : tela_relatorios(); 
-                break; 
-      case  '4' : tela_sobre(); 
-                break; 
-      case  '5' : tela_equipe(); 
-                break; 
-      case  '6' : finalizar();  
                   break;
+      case  '2' : modulo_entrada_saida(); 
+                  break;  
+      case  '3' : tela_relatorios(); 
+                  break; 
+      case  '4' : tela_sobre(); 
+                  break; 
+      case  '5' : tela_equipe(); 
+                  break; 
+      case '6' : finalizar(); 
+                 break;
     }
   } while (op != '6'); 
   return 0; 
@@ -63,12 +78,12 @@ char tela_menu_principal(void){
    printf("\n#####################################################\n");
    printf("\n#                                                   #\n"); 
    printf("\n#   = Sistema de controle de fluxo de veículos =    #\n"); 
-   printf("\n#      1.Módulo cadastro de veículos/cadastro de C. #\n"); 
+   printf("\n#      1.Módulo cadastro de veículos/Cadast.Cliente #\n"); 
    printf("\n#      2.Módulo entrada e saída                     #\n"); 
    printf("\n#      3.Relatórios                                 #\n");  
    printf("\n#      4.Sobre                                      #\n"); 
-   printf("\n#      5.Equipe                                     #\n"); 
-   printf("\n#      6.Encerrar programa                          #\n");
+   printf("\n#      5.Equipe                                    #\n"); 
+   printf("\n#      6.Encerrar programa                         #\n");
    printf("\nQual sua opcao?:"); 
    scanf("%c",&op); 
    getchar();   
