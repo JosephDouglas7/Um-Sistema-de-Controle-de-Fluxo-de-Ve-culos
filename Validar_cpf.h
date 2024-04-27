@@ -1,3 +1,5 @@
+//Feito com a ajuda do chat copiloto
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h> // Para usar a função isdigit
