@@ -61,7 +61,7 @@ char modulo_cadastrar_veiculo(void){
 
 
 
-char cadastrar_veiculo(Cadastrar_V* al,char i){  
+void cadastrar_veiculo(void){  
     Cadastrar_V cv;
     system("clear||cls");
     printf("\n");
