@@ -1,6 +1,6 @@
 #include<stdio.h>   
 #include<stdlib.h> 
-#include"Entrada_saida_V.h" 
+#include"entrada_saida_v.h" 
 
 
 typedef struct {
