@@ -3,11 +3,12 @@
 #include"entrada_saida_v.h" 
 
 
-typedef struct {
+typedef struct entrada_s entrada_S;
+typedef struct entrada_s{
   char marca_V[20]; 
-  char placa_V[15]; 
+  char placa_V[9]; 
   char cor_V[20]; 
-} Entrada_saida_V; 
+}; 
 
 
 char tela_entrada_saida(void){   
@@ -51,21 +52,20 @@ char modulo_entrada_saida(void){
 }  
 
 
-char entrada_saida(void){   
+char entrada_saida(void){    
+    entrada_S cv;
     system("clear||cls");
     printf("\n");    
     printf("\n########################################################################################\n"); 
     printf("\n#                    = = = = =  Entrada/Saída de veículos = = = = =                    #\n");
     printf("\nMarca do veículo:");  
-    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->marca_V);
+    scanf(" %20[^\n]", cv.marca_V);
     printf("\nPlaca do veículo:");  
-    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->placa_V);
+    scanf(" %8[^\n]", cv.placa_V);
     printf("\nCor do veículo:");   
-    scanf(" %[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_e_s_v->cor_V); 
+    scanf(" %20[^\n]", cv.cor_V);
     getchar();   
     sleep(1);    
-    free(novo_e_s_v); 
-    return 0;
 }  
 
 
@@ -74,13 +74,10 @@ char pesquisar_e_s(void){
      printf("\n");  
      printf("\n########################################################################################\n");  
      printf("\n#                                                                                      #\n");  
-     printf("\n# Pesquisar entrada/saida.v:                                                           #\n"); 
-   //printf("\nMarca do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->marca_V); 
-   //printf("\nPlaca do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->placa_V); 
-   //printf("\nCor do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->cor_V);
+     printf("\nPlaca do veículo:");  
+     scanf(" %8[^\n]", cv.placa_V);
      printf("\n");  
      getchar();  
-     return 0;
 }
 
   void alterar_e_s(void){  
