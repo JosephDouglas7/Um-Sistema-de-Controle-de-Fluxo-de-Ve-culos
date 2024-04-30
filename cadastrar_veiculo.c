@@ -83,17 +83,13 @@ void cadastrar_veiculo(void){
 }  
 
 
-char Pesquisar_cadastro_v(Cadastrar_V* al,char i){ 
-    //Em desenvolvimento...
-    char op; 
+void pesquisar_cadastro_v(void){ 
+     Cadastrar_V cv;
      system("clear||cls");
-     printf("\n");   
-     printf("\nNome do motorista: %s\n",al[i].nome);  
-     printf("\nContato do motorista: %s\n",al[i].celular);
-     printf("\nMarca do veículo: %s\n",al[i].marca_V); 
-     printf("\nPlaca do veículo: %s\n",al[i].placa_V); 
-     printf("\nCPF: %s\n",al[i].cpf);
-     printf("\n");
+     printf("\n");     
+     printf("\nPlaca do veículo:");  
+     scanf(" %8[^\n]", cv.placa_V);
+     printf("\n"); 
 } 
 
 
