@@ -5,11 +5,11 @@
 #include<stdlib.h> 
 #include<unistd.h> 
 #include<string.h> 
-#include"Cadastrar_veiculo.h" 
-#include"Entrada_saida_V.h" 
-#include"Relatorios.h"
+#include"cadastrar_veiculo.h" 
+#include"entrada_saida_V.h" 
+#include"relatorios.h"
 #include"menus.h" 
-#include"Finalizar.h" 
+#include"finalizar.h" 
 
 
 typedef struct cadastrar_v Cadastrar_V;
