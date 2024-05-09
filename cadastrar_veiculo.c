@@ -116,11 +116,6 @@ void pesquisar_cadastro_v(void){
      printf("\n########################################################################################\n"); 
      printf("\n#                                                                                      #\n"); 
      printf("\nNome do motorista para excluir:"); 
-   //printf("\nNome do motorista: %s\n",al[i].nome);  
-   //printf("\nContato do motorista: %s\n",al[i].celular);
-   //printf("\nMarca do veículo: %s\n",al[i].marca_V); 
-   //printf("\nPlaca do veículo: %s\n",al[i].placa_V); 
-   //printf("\nCPF: %s\n",al[i].cpf);
      getchar(); 
      return 0;
 }
