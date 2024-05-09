@@ -62,25 +62,31 @@ char modulo_cadastrar_veiculo(void){
 
 
 void cadastrar_veiculo(void){  
-    Cadastrar_V cv;
-    system("clear||cls");
-    printf("\n");
-    printf("\n########################################################################################\n"); 
-    printf("\n#                                                                                      #\n");
-    printf("\nNome do motorista:");  
-    scanf(" %99[^\n]",cv.nome);
-    printf("\nContato do motorista:");  
-    scanf(" %14[^\n]", cv.celular);
-    printf("\nMarca do veículo:");  
-    scanf(" %19[^\n]",cv.marca_V);
-    printf("\nPlaca do veículo:");  
-    scanf(" %8[^\n]", cv.placa_V);
-    printf("\nCPF:"); 
-    scanf(" %11[^\n]", cv.cpf);
-    getchar(); 
-    sleep(1);     
-    return 0;
-}  
+ 
+  Cadastrar_V cv;
+  
+  system("clear||cls");
+  printf("\n");
+  printf("\n#############################################################################\n"); 
+  printf("\n#                                                                           #\n");
+  printf("\nNome do motorista:");  
+  scanf(" %99[^\n]",cv.nome); 
+  validar_nome(cv.nome); 
+  printf("\nContato do motorista:");  
+  scanf(" %14[^\n]", cv.celular); 
+  validar_nome(cv.celular);
+  printf("\nMarca do veículo:");  
+  scanf(" %19[^\n]",cv.marca_V); 
+  validar_nome(cv.marca_V);
+  printf("\nPlaca do veículo:");  
+  scanf(" %8[^\n]", cv.placa_V); 
+  validar_nome(cv.placa_V);
+  printf("\nCPF:"); 
+  scanf(" %11[^\n]", cv.cpf); 
+  validar_nome(cv.cpf);
+  getchar(); 
+  sleep(1);
+}   
 
 
 void pesquisar_cadastro_v(void){ 
