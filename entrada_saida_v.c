@@ -100,9 +100,6 @@ char pesquisar_e_s(void){
      printf("\n########################################################################################\n");   
      printf("\n#                                                                                      #\n");
      printf("\nPlaca do veículo para excluir:");  
-   //printf("\nMarca do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->marca_V); 
-   //printf("\nPlaca do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->placa_V); 
-   //printf("\nCor do veículo:%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_e_s_v->cor_V);
      printf("\n");   
      getchar();  
      return;
