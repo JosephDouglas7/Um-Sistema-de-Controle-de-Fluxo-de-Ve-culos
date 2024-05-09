@@ -2,10 +2,7 @@
 #include<stdlib.h> 
 #include"cadastrar_veiculo.h"
 #include<string.h> 
-//#include"Validar_N_Cadastrar_veiculo.h"
-//#include"Validar_N_Cadastrar_veiculo.h"
-//#include"Validar_placa_veiculo.h" 
-//#include"Validar_placa_veiculo.h"
+#include"validar.h"
 
 typedef struct cadastrar_v Cadastrar_V;
 struct cadastrar_v{
