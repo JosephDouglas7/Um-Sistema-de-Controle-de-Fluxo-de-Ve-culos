@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#include<string.h>
+#include<string.h> 
+#include"validar.h"
 
 
 //Validar número do motorista 
