@@ -11,7 +11,6 @@ struct veiculo{
 };   
 
 void modulo_cadastrar_veiculo(void);
-//char tela_cadastrar_veiculo(void);  
 void cadastrar_veiculo(void);  
 char tela_cadastrar_veiculo(void);
 Veiculo* preencher_veiculo(void);
