@@ -1,26 +1,18 @@
 //Bibliotecas  
 
 
-#include<stdio.h> 
-#include<stdlib.h> 
-#include<unistd.h> 
-#include<string.h> 
-#include"cadastrar_veiculo.h" 
-#include"entrada_saida_V.h" 
-#include"relatorios.h"
-#include"menus.h" 
-#include"finalizar.h" 
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <unistd.h> 
+#include <string.h> 
+#include "veiculo.h" 
+#include "entrada_saida_V.h" 
+#include "relatorios.h"
+#include "menus.h" 
+#include "finalizar.h" 
 
 
-typedef struct cadastrar_v Cadastrar_V;
 
-typedef struct {
-  char nome[100];
-  char celular[15]; 
-  char marca_V[20]; 
-  char placa_V[15]; 
-  char cpf[11];
-};  
 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
@@ -28,36 +20,30 @@ void pausa() {
 
 
 char menu_principal(void);
-char Cadastrar_veiculo(Cadastrar_V*,char); 
-char Pesquisar_cadastro_v(Cadastrar_V*,char);
-
-int main(void){   
-  Cadastrar_V* al;
-  char *novo_cadastrar_v;
-  menu_principal();  
-  return 0;  
-}
 
 
-char menu_principal(void){  
+int main(void){  
+    
   char op;  
   do{
      op = tela_menu_principal();
     switch(op){ 
       case  '1' : modulo_cadastrar_veiculo(); 
+                  break; 
+      case  '2':  modulo_cadastrar_cliente(); 
                   break;
-      case  '2' : modulo_entrada_saida(); 
+      case  '3' : modulo_entrada_saida(); 
                   break;  
-      case  '3' : tela_relatorios(); 
+      case  '4' : tela_relatorios(); 
                   break; 
-      case  '4' : tela_sobre(); 
+      case  '5' : tela_sobre(); 
                   break; 
-      case  '5' : tela_equipe(); 
+      case  '6' : tela_equipe(); 
                   break; 
-      case '6' : finalizar(); 
+      case '7' : finalizar(); 
                  break;
     }
-  } while (op != '6'); 
+  } while (op != '7'); 
   return 0; 
 }  
 
@@ -78,12 +64,13 @@ char tela_menu_principal(void){
    printf("\n#####################################################\n");
    printf("\n#                                                   #\n"); 
    printf("\n#   = Sistema de controle de fluxo de veículos =    #\n"); 
-   printf("\n#      1.Módulo cadastro de veículos/Cadast.Cliente #\n"); 
-   printf("\n#      2.Módulo entrada e saída                     #\n"); 
-   printf("\n#      3.Relatórios                                 #\n");  
-   printf("\n#      4.Sobre                                      #\n"); 
-   printf("\n#      5.Equipe                                    #\n"); 
-   printf("\n#      6.Encerrar programa                         #\n");
+   printf("\n#      1.Módulo cadastro de veículos/Cadast.Cliente #\n");   
+   printf("\n#      2.Módulo cadastrar cliente                   #\n");
+   printf("\n#      3.Módulo entrada e saída                     #\n"); 
+   printf("\n#      4.Relatórios                                 #\n");  
+   printf("\n#      5.Sobre                                      #\n"); 
+   printf("\n#      6.Equipe                                     #\n"); 
+   printf("\n#      7.Encerrar programa                          #\n");
    printf("\nQual sua opcao?:"); 
    scanf("%c",&op); 
    getchar();   
