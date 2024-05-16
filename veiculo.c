@@ -11,7 +11,7 @@
 typedef struct veiculo Veiculo;  
 
 
-//void regravar_veiculo(Veiculo* vco1);
+
 
 void cadastrar_veiculo(void){ 
     Veiculo* vco1; 
@@ -48,7 +48,7 @@ void alterar_veiculo(void){
        printf("\n\nAluno não encontrado!\n\n");
      } else {
        vco1 = preencher_veiculo();
-       strcpy(vco1->cpf, vco);
+       strcpy(vco1->placa_V, vco);
        regravar_veiculo(vco1);
        free(vco1); 
   }
@@ -124,21 +124,20 @@ void modulo_cadastrar_veiculo(void){
    printf("\n");
   printf("\n#############################################################################\n"); 
   printf("\n#                                                                           #\n");
-  printf("\nNome do motorista:");  
-  scanf(" %99[^\n]",vco1->nome); 
-  validar_nome(vco1->nome); 
-  printf("\nContato do motorista:");  
-  scanf(" %14[^\n]",vco1->celular); 
-  validar_nome(vco1->celular);
+ 
+
   printf("\nMarca do veículo:");  
   scanf(" %19[^\n]",vco1->marca_V); 
   validar_nome(vco1->marca_V);
   printf("\nPlaca do veículo:");  
   scanf(" %8[^\n]",vco1->placa_V); 
-  validar_nome(vco1->placa_V);
-  printf("\nCPF:"); 
-  scanf(" %11[^\n]",vco1->cpf); 
-  validar_nome(vco1->cpf);
+  validar_nome(vco1->placa_V); 
+  printf("\nMês:"); 
+  scanf(" %2[^\n]",vco1->mes_V); 
+  validar_nome(vco1->mes_V); 
+  printf("\nAno:"); 
+  scanf(" %4[^\n]",vco1->ano_V); 
+  validar_nome(vco1->ano_V);
   getchar(); 
   sleep(1);
   return vco1;
@@ -166,7 +165,7 @@ char* tela_alterar_veiculo(void) {
      printf("\n");   
 printf("\n######################################################\n");  
 printf("\n#                                                    #\n");  
-printf("\nCPF do motorista para alterar:"); 
+printf("\nPlaca do veiculo para alterar:"); 
 scanf("%11[^\n]",vco); 
 printf("\n");  
 getchar();  
@@ -237,10 +236,10 @@ void exibir_veiculo(Veiculo* carro) {
     printf("\n= = = Veiculo Inexistente = = =\n");
   } else {
     printf("\n= = = Veiculo Cadastrado = = =\n");
-    printf("Nome: %s\n", vco1->nome);
     printf("Marca: %s\n", vco1->marca_V);
     printf("Placa: %s\n", vco1->placa_V);
-    printf("Celular: %s\n", vco1->celular);
+    printf("Mês: %s\n", vco1->mes_V);  
+    printf("Ano: %s\n", vco1->ano_V);
     printf("Status: %d\n", vco1->status);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
