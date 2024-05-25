@@ -67,7 +67,7 @@ void alterar_veiculo(void){
     if (vco1 == NULL) {
         printf("\n\nAluno não encontrado!\n\n");
       } else {
-        //aln->cpf;
+        //vco1->cpf;
         regravar_veiculo(vco1);
         free(vco1);
   
@@ -214,7 +214,7 @@ Veiculo* buscar_veiculo(char* placa) {
   Veiculo* vco1;
 
   vco1 = (Veiculo*) malloc(sizeof(Veiculo));
-  fp = fopen("alunos.dat", "rb");
+  fp = fopen("veiculos.dat", "rb");
   if (fp == NULL) {
     erro_arquivo_veiculo();
   }
@@ -254,7 +254,7 @@ void  regravar_veiculo(Veiculo* vco1) {
   Veiculo* vco1_Lido;
 
   vco1_Lido = (Veiculo*) malloc(sizeof(Veiculo));
-  fp = fopen("alunos.dat", "r+b");
+  fp = fopen("veiculos.dat", "r+b");
   if (fp == NULL) {
     erro_arquivo_veiculo();
   }
