@@ -1,12 +1,10 @@
 typedef struct veiculo Veiculo;
 
 struct veiculo{
-//  Manter APENAS os dados do veículo
-  char nome[100];
-  char celular[15]; 
   char marca_V[20]; 
   char placa_V[9]; 
-  char cpf[12]; 
+  char mes_V[3];  
+  char ano_V[5];
   int status;
 };   
 
