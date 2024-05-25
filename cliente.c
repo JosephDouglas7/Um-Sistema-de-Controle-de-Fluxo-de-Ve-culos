@@ -195,7 +195,7 @@ void gravar_cliente(Cliente* vco1){
 
     FILE* fp;
 
-    fp = fopen("veiculos.dat", "ab");
+    fp = fopen("alunos.dat", "ab");
     if (fp == NULL) {
       erro_arquivo_cliente();
     }
@@ -257,12 +257,12 @@ void exibir_cliente(Cliente* carro) {
 
   achou = 0;
   while(fread(vco1_Lido, sizeof(Cliente), 1, fp) && !achou) {
-    //fread(alnLido, sizeof(Aluno), 1, fp);
+    fread(vco1_Lido, sizeof(Cliente), 1, fp);
     if (strcmp(vco1_Lido->cpf, vco1->cpf) == 0) {
       achou = 1;
       fseek(fp, -1*sizeof(Cliente), SEEK_CUR);
           fwrite(vco1, sizeof(Cliente), 1, fp);
-      //break;
+      break;
     }
   }
   fclose(fp);
