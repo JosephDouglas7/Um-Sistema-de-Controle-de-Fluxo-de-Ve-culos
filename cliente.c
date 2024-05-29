@@ -195,7 +195,7 @@ void gravar_cliente(Cliente* vco1){
 
     FILE* fp;
 
-    fp = fopen("alunos.dat", "ab");
+    fp = fopen("cliente.dat", "ab");
     if (fp == NULL) {
       erro_arquivo_cliente();
     }
@@ -211,7 +211,7 @@ Cliente* buscar_cliente(char* placa) {
   Cliente* vco1;
 
   vco1 = (Cliente*) malloc(sizeof(Cliente));
-  fp = fopen("alunos.dat", "rb");
+  fp = fopen("cliente.dat", "rb");
   if (fp == NULL) {
     erro_arquivo_cliente();
   }
@@ -250,7 +250,7 @@ void exibir_cliente(Cliente* carro) {
   Cliente* vco1_Lido;
 
   vco1_Lido = (Cliente*) malloc(sizeof(Cliente));
-  fp = fopen("alunos.dat", "r+b");
+  fp = fopen("cliente.dat", "r+b");
   if (fp == NULL) {
     erro_arquivo_cliente();
   }
