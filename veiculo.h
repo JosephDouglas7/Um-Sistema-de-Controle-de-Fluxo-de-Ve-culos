@@ -4,7 +4,8 @@ struct veiculo{
   char marca_V[20]; 
   char placa_V[9]; 
   char mes_V[3];  
-  char ano_V[5];
+  char ano_V[5]; 
+  float aluguel_V[12];
   int status;
 };   
 
