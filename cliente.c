@@ -64,7 +64,7 @@ void alterar_cliente(void){
     if (vco1 == NULL) {
         printf("\n\nAluno não encontrado!\n\n");
       } else {
-        //aln->cpf;
+        vco1->cpf;
         regravar_cliente(vco1);
         free(vco1);
 
@@ -102,14 +102,14 @@ char tela_cadastrar_cliente(void){
   system("clear||cls");
   printf("\n");   
                  
- printf("\n#####################################################################\n"); 
- printf("\n#             = = = = tela cadastrar cliente = = = =                #\n"); 
- printf("\n# 1.cadastrar cliente                                               #\n"); 
- printf("\n# 2.Pesquisar cliente                                               #\n");
- printf("\n# 3.alterar cliente                                                 #\n"); 
- printf("\n# 4.excluir cliente                                                 #\n"); 
- printf("\n# 5.Retornar ao menu principal                                      #\n"); 
- printf("\n#####################################################################\n"); 
+ printf("\n###############################################\n"); 
+ printf("\n#    = = =  tela cadastrar cliente = = =      #\n"); 
+ printf("\n# 1.cadastrar cliente                         #\n"); 
+ printf("\n# 2.Pesquisar cliente                         #\n");
+ printf("\n# 3.alterar cliente                           #\n"); 
+ printf("\n# 4.excluir cliente                           #\n"); 
+ printf("\n# 5.Retornar ao menu principal                #\n"); 
+ printf("\n###############################################\n"); 
  printf("\nQual sua opcao?:"); 
  scanf("%c",&op);  
  getchar();  
@@ -126,14 +126,14 @@ Cliente* preencher_cliente(void){
    printf("\n#################################################\n"); 
    printf("\n#                                               #\n");     
    printf("\nNome do motorista:");  
-   scanf(" %19[^\n]",vco1->nome); 
+   scanf(" %99[^\n]",vco1->nome); 
    validar_nome(vco1->nome);
    printf("\nContato do motorista:");  
-   scanf(" %8[^\n]",vco1->celular); 
-   validar_nome(vco1->celular); 
+   scanf(" %11[^\n]",vco1->celular); 
+   validar_celular(vco1->celular); 
    printf("\nCPF:"); 
    scanf(" %11[^\n]",vco1->cpf); 
-   validar_nome(vco1->cpf); 
+   valida_cpf(vco1->cpf);  
    getchar(); 
    sleep(1);
    return vco1;
