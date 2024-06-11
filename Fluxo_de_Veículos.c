@@ -1,6 +1,3 @@
-//Bibliotecas  
-
-
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <unistd.h> 
@@ -10,8 +7,6 @@
 #include "relatorios.h"
 #include "menus.h" 
 #include "finalizar.h" 
-
-
 
 
 void pausa() {
