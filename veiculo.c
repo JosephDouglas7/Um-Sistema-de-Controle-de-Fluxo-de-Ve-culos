@@ -8,20 +8,21 @@
 #include <string.h>
 #include <unistd.h>
 
+
 typedef struct veiculo Veiculo;
+
 
 void cadastrar_veiculo(void) {
   Veiculo *vco1;
-
   vco1 = preencher_veiculo();
   gravar_veiculo(vco1);
   free(vco1);
 }
 
+
 void pesquisar_veiculo(void) {
   Veiculo *carro;
   char *placa;
-
   placa = tela_pesquisar_veiculo();
   carro = buscar_veiculo(placa);
   exibir_veiculo(carro);
@@ -29,11 +30,11 @@ void pesquisar_veiculo(void) {
   free(placa);
 }
 
+
 void alterar_veiculo(void) {
   void regravar_veiculo(Veiculo * vco1);
   Veiculo *vco1;
   char *vco;
-
   vco = tela_alterar_veiculo();
   vco1 = buscar_veiculo(vco);
   if (vco1 == NULL) {
@@ -47,11 +48,11 @@ void alterar_veiculo(void) {
   free(vco);
 }
 
+
 void excluir_veiculo(void) {
   void regravar_veiculo(Veiculo * vco1);
   Veiculo *vco1;
   char *vco;
-
   vco = tela_excluir_veiculo();
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
   vco1 = buscar_veiculo(vco);
@@ -64,6 +65,7 @@ void excluir_veiculo(void) {
   }
   free(vco);
 }
+
 
 char tela_cadastrar_veiculo(void) {
   char op;
@@ -82,6 +84,7 @@ char tela_cadastrar_veiculo(void) {
   getchar();
   return op;
 }
+
 
 void modulo_cadastrar_veiculo(void) {
   char op;
@@ -105,14 +108,13 @@ void modulo_cadastrar_veiculo(void) {
   } while (op != '5');
 }
 
+
 Veiculo *preencher_veiculo(void) {
   Veiculo *vco1;
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
-
   system("clear||cls");
   printf("\n");
   printf("\n##############################################\n");
-
   printf("\nMarca do veículo:");
   scanf(" %19[^\n]", vco1->marca_V);
   validar_nome(vco1->marca_V);
@@ -126,11 +128,13 @@ Veiculo *preencher_veiculo(void) {
   scanf(" %4[^\n]", vco1->ano_V);
   validar_nome(vco1->ano_V);
   printf("\nvalor pago:");
-  scanf(" %10[^\n]", vco1->aluguel_V);
+  scanf(" %f", &vco1->aluguel_V);
+  validar_aluguel(&vco1->aluguel_V);
   getchar();
   sleep(1);
   return vco1;
 }
+
 
 char *tela_pesquisar_veiculo(void) {
   char *vco;
@@ -143,9 +147,9 @@ char *tela_pesquisar_veiculo(void) {
   return vco;
 }
 
+
 char *tela_alterar_veiculo(void) {
   char *vco;
-
   vco = (char *)malloc(12 * sizeof(char));
   system("clear||cls");
   printf("\n");
@@ -158,28 +162,28 @@ char *tela_alterar_veiculo(void) {
   return vco;
 }
 
+
 char *tela_excluir_veiculo(void) {
   char *vco;
   vco = (char *)malloc(12 * sizeof(char));
   system("clear||cls");
   printf("\n");
-
-  printf("\n#############################################################\n");
-  printf("\n#                                                           #\n");
+  printf("\n########################################\n");
   printf("\nPlaca do veículo para excluir:");
   scanf(" %8[^\n]", vco);
   getchar();
   return vco;
 }
 
+
 void erro_arquivo_veiculo(void) {
   printf("Ops! Ocorreu um erro no arquivo!\n");
 }
 
+
 void gravar_veiculo(Veiculo *vco1) {
 
   FILE *fp;
-
   fp = fopen("veiculos.dat", "ab");
   if (fp == NULL) {
     erro_arquivo_veiculo();
@@ -188,11 +192,11 @@ void gravar_veiculo(Veiculo *vco1) {
   fclose(fp);
 }
 
+
 Veiculo *buscar_veiculo(char *placa) {
 
   FILE *fp;
   Veiculo *vco1;
-
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
   fp = fopen("veiculos.dat", "rb");
   if (fp == NULL) {
@@ -208,9 +212,9 @@ Veiculo *buscar_veiculo(char *placa) {
   return NULL;
 }
 
+
 void exibir_veiculo(Veiculo *vco1) {
-  //Veiculo *vco1;
-  vco1 = (Veiculo*) malloc(sizeof(Veiculo));
+  vco1 = (Veiculo *)malloc(sizeof(Veiculo));
   if (vco1 == NULL) {
     printf("\n= = = Veiculo Inexistente = = =\n");
   } else {
@@ -219,25 +223,24 @@ void exibir_veiculo(Veiculo *vco1) {
     printf("Placa: %s\n", vco1->placa_V);
     printf("Mês: %s\n", vco1->mes_V);
     printf("Ano: %s\n", vco1->ano_V);
-    printf("valor pago: %2.f\n", vco1->aluguel_V);
+    printf("valor pago: %.2f\n", vco1->aluguel_V);
     printf("Status: %d\n", vco1->status);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
 }
 
+
 void regravar_veiculo(Veiculo *vco1) {
 
   int achou;
   FILE *fp;
   Veiculo *vco1_Lido;
-
   vco1_Lido = (Veiculo *)malloc(sizeof(Veiculo));
   fp = fopen("veiculos.dat", "r+b");
   if (fp == NULL) {
     erro_arquivo_veiculo();
   }
-
   achou = 0;
   while (fread(vco1_Lido, sizeof(Veiculo), 1, fp) && !achou) {
     fread(vco1_Lido, sizeof(Veiculo), 1, fp);
