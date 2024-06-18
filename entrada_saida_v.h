@@ -4,9 +4,10 @@ struct fluxo_veiculo{
   char marca_V[21]; 
   char placa_V[9]; 
   char cor_V[12];  
+  float entrada_V; 
+  float saida_V;
   int status;
 };   
-
 
 
 char modulo_entrada_saida(void);
