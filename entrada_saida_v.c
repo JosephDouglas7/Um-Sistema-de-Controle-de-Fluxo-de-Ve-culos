@@ -206,10 +206,9 @@ Fluxo_Veiculo* buscar_entrada_saida(char* placa) {
 
 
 void exibir_entrada_saida(Fluxo_Veiculo* vco1) {  
-  //Fluxo_Veiculo *vco1;
   vco1 = (Fluxo_Veiculo*) malloc(sizeof(Fluxo_Veiculo));
   if (vco1 == NULL) {
-    //printf("\n= = = Veiculo Inexistente = = =\n");
+    printf("\n= = = Veiculo Inexistente = = =\n");
   } else {
     printf("\n= = = Veiculo Cadastrado = = =\n");
     printf("Marca: %s\n", vco1->marca_V);
