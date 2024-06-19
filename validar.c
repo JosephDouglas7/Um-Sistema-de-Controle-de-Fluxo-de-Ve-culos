@@ -144,7 +144,6 @@ int validar4() {
 } 
 
 
-//Feito com ajuda: https://copilot.microsoft.com/
 //validar pagamento de aluguel de veículo
 
 float validar_aluguel(float *aluguel_V){
