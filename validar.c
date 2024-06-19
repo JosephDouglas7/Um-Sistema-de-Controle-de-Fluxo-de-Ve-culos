@@ -1,8 +1,9 @@
-//Feito com a ajuda do chat copiloto 
+//Feito com a ajuda: https://copilot.microsoft.com/
+
 
 #include <stdio.h>
 #include <ctype.h>
-#include<string.h> 
+#include <string.h>
 #include"validar.h"
 
 
@@ -139,5 +140,48 @@ int validar4() {
     } else {
         printf("Placa inválida!\n");
     }
+    return 0;
+} 
+
+
+//Feito com ajuda: https://copilot.microsoft.com/
+//validar pagamento de aluguel de veículo
+
+float validar_aluguel(float *aluguel_V){
+ if (aluguel_V < 0) {
+        printf("Valor de pagamento inválido. Deve ser um número positivo.\n");
+    } else {
+        printf("Valor de pagamento válido.\n");
+    }
+
+    return 0;
+}
+
+
+//validar entrada de veículos
+
+float validar_entrada_V(float *entrada_V){ 
+float hora;     
+if (hora < 7 || hora > 19) {
+     //printf("Hora de entrada inválida. Deve estar entre 07:00 
+//e 19:00.\n");
+    } else {
+        printf("Entrada de veiculo válida.\n");
+    }
+    return 0;
+}  
+
+
+//validar saída de veículos 
+
+float validar_saida_V(float *saida_V){ 
+float hora; 
+    
+if (hora < 7 || hora > 22) {
+        printf("Hora de saída inválida. Deve estar entre 07:00 e 22:00.\n");
+    } else {
+        printf("Saída de veiculo válida.\n");
+    }
+
     return 0;
 }
