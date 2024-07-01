@@ -11,43 +11,37 @@ typedef struct cliente Cliente;
 
 
 void cadastrar_cliente(void){ 
-    Cliente* vco1; 
-
-
-    vco1 = preencher_cliente();
-    gravar_cliente(vco1); 
-    free(vco1);
-
+    Cliente* cliente; 
+    cliente = preencher_cliente();
+    gravar_cliente(cliente); 
+    free(cliente);
 }  
 
 
 void pesquisar_cliente(void){ 
    Cliente* carro;
-   char* placa;
-
-   placa = tela_pesquisar_cliente();
-   carro = buscar_cliente(placa);
+   char* cpf;  // precisa?
+   cpf = tela_pesquisar_cliente();
+   carro = buscar_cliente(cpf);
    exibir_cliente(carro);
    free(carro); 
-   free(placa);
-
+   free(cpf);
 }  
 
 
 void alterar_cliente(void){  
-  void regravar_cliente(Cliente* vco1);
-   Cliente* vco1;
+  void regravar_cliente(Cliente* cpf);
+   Cliente* cpf;
    char* vco;
-
    vco = tela_alterar_cliente();
-   vco1 = buscar_cliente(vco);
-   if (vco1 == NULL) {
+   cpf = buscar_cliente(vco);
+   if (cpf == NULL) {
        printf("\n\nAluno não encontrado!\n\n");
      } else {
-       vco1 = preencher_cliente();
-       strcpy(vco1->cpf, vco);
-       regravar_cliente(vco1);
-       free(vco1); 
+       cpf = preencher_cliente();
+       strcpy(cpf->cpf, vco);
+       regravar_cliente(cpf);
+       free(cpf); 
   }
   free(vco);
 }  
@@ -55,24 +49,21 @@ void alterar_cliente(void){
 
  void excluir_cliente(void){  
     void regravar_cliente(Cliente* vco1);
-    Cliente* vco1;
+    Cliente* cpf;
     char * vco;
 
-      vco = tela_excluir_cliente();
-    vco1 = (Cliente*) malloc(sizeof(Cliente));
-    vco1 = buscar_cliente(vco);
-    if (vco1 == NULL) {
+    vco = tela_excluir_cliente();
+    cpf = (Cliente*) malloc(sizeof(Cliente));
+    cpf = buscar_cliente(vco);
+    if (cpf == NULL) {
         printf("\n\nAluno não encontrado!\n\n");
       } else {
-        vco1->cpf;
-        regravar_cliente(vco1);
-        free(vco1);
-
+        cpf->cpf;
+        regravar_cliente(cpf);
+        free(cpf);
  } 
   free(vco);
 } 
-
-
 
 
 void modulo_cadastrar_cliente(void){  
@@ -93,7 +84,6 @@ void modulo_cadastrar_cliente(void){
                  break;
     }
   } while (op != '5'); 
-
 }    
 
 
@@ -114,30 +104,60 @@ char tela_cadastrar_cliente(void){
  scanf("%c",&op);  
  getchar();  
  return op;
-
 }
 
 
 Cliente* preencher_cliente(void){   
-   Cliente *vco1;
-   vco1 = (Cliente*) malloc(sizeof(Cliente));
+   Cliente *cliente;
+   cliente = (Cliente*) malloc(sizeof(Cliente));
    system("clear||cls");
    printf("\n");
    printf("\n#################################################\n"); 
    printf("\n#                                               #\n");     
-   printf("\nNome do motorista:");  
-   scanf(" %99[^\n]",vco1->nome); 
-   validar_nome(vco1->nome);
-   printf("\nContato do motorista:");  
-   scanf(" %11[^\n]",vco1->celular); 
-   validar_celular(vco1->celular); 
-   printf("\nCPF:"); 
-   scanf(" %11[^\n]",vco1->cpf); 
-   valida_cpf(vco1->cpf);  
+   ler_nome(cliente->nome); 
+   ler_celular(cliente->celular); 
+   ler_cpf(cliente->cpf); 
+   cliente->status = 1;
    getchar(); 
    sleep(1);
-   return vco1;
+   return cliente;
 } 
+
+
+void ler_nome(char* nome){ 
+  printf("\nDigite o nome do cliente:");
+  scanf("%s", nome);
+  while (!validar_nome(nome)) {
+   printf("Nome do cliente inválido!\n");
+   printf("Digite o nome do cliente: ");
+   scanf("%s", nome); 
+   break;
+ }
+}  
+
+
+void ler_celular(char* celular){ 
+  printf("\nDigite o telefone do cliente:");
+  scanf("%s", celular);
+while (!validar_celular(celular)) {
+     printf("Telefone do cliente inválido!\n");
+     printf("Digite o telefone do cliente: ");
+     scanf("%s", celular); 
+     break;
+   }
+} 
+
+
+void ler_cpf(char* cpf){ 
+  printf("\nDigite o CPF do cliente:");
+  scanf("%s", cpf);
+  while (!validar_cpf(cpf)) {
+   printf("CPF do cliente inválido!\n");
+   printf("Digite o CPF do cliente: ");
+   scanf("%s", cpf); 
+   break;
+ }
+}  
 
 
 char* tela_pesquisar_cliente(void){  
@@ -187,21 +207,18 @@ char* tela_excluir_cliente(void){
 
 void erro_arquivo_cliente(void){ 
    printf("Ops! Ocorreu um erro no arquivo!\n");
-
 } 
 
 
 void gravar_cliente(Cliente* vco1){  
 
     FILE* fp;
-
     fp = fopen("cliente.dat", "ab");
     if (fp == NULL) {
       erro_arquivo_cliente();
     }
     fwrite(vco1, sizeof(Cliente), 1, fp);
     fclose(fp);
-
 } 
 
 
@@ -209,7 +226,6 @@ Cliente* buscar_cliente(char* placa) {
 
   FILE* fp;
   Cliente* vco1;
-
   vco1 = (Cliente*) malloc(sizeof(Cliente));
   fp = fopen("cliente.dat", "rb");
   if (fp == NULL) {
@@ -230,13 +246,13 @@ void exibir_cliente(Cliente* carro) {
   Cliente *vco1;
   vco1 = (Cliente*) malloc(sizeof(Cliente));
   if (vco1 == NULL) {
-    printf("\n= = = Veiculo Inexistente = = =\n");
+    printf("\n= = = Cliente Inexistente = = =\n");
   } else {
-    printf("\n= = = Veiculo Cadastrado = = =\n");
+    printf("\n= = = Cliente Cadastrado = = =\n");
     printf("Nome: %s\n", vco1->nome);
     printf("Celular: %s\n", vco1->celular);
     printf("CPF: %s\n", vco1->cpf);  
-    printf("Status: %d\n", vco1->status);
+    printf("Status: %d\n",vco1->status);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
@@ -244,11 +260,9 @@ void exibir_cliente(Cliente* carro) {
 
 
  void regravar_cliente(Cliente* vco1) {  
-
   int achou;
   FILE* fp;
   Cliente* vco1_Lido;
-
   vco1_Lido = (Cliente*) malloc(sizeof(Cliente));
   fp = fopen("cliente.dat", "r+b");
   if (fp == NULL) {
