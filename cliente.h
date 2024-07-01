@@ -8,7 +8,10 @@ struct cliente{
 };   
 
 
-void cadastrar_cliente(void); 
+void cadastrar_cliente(void);  
+void ler_nome(char*); 
+void ler_celular(char*); 
+void ler_cpf(char*);
 char* tela_pesquisar_cliente(void); 
 char* tela_pesquisar_cliente(void);
 Cliente* buscar_cliente(char* placa);
