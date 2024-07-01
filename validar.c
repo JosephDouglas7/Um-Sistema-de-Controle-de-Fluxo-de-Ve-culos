@@ -1,4 +1,4 @@
-//Feito com a ajuda: https://copilot.microsoft.com/
+//Feito com ajuda: https://copilot.microsoft.com/
 
 
 #include <stdio.h>
@@ -22,22 +22,10 @@ int validar_celular(char *celular) {
     return 1;
 }
 
-int validar1() {
-    char celular[12];
-    printf("Digite o número do celular: ");
-    scanf("%s", celular);
-    if(validar_celular(celular)) {
-        printf("Celular válido.\n");
-    } else {
-        printf("Celular inválido.\n");
-    }
-    return 0;
-}
-
 
 //Validar CPF 
 
-int valida_cpf(char* cpf) {
+int validar_cpf(char* cpf) {
     int i, j, digito1 = 0, digito2 = 0;
 
     if(strlen(cpf) != 11)
@@ -70,20 +58,6 @@ int valida_cpf(char* cpf) {
     return 1;
 }
 
-int validar2() {
-    char cpf[12];
-    printf("Digite o CPF: ");
-    scanf("%s", cpf);
-
-    if(valida_cpf(cpf)) {
-        printf("CPF válido.\n");
-    } else {
-        printf("CPF inválido.\n");
-    }
-
-    return 0;
-}
-
 
 //Validar nome 
 
@@ -97,23 +71,10 @@ int validar_nome(char *nome) {
     return 1;
 }
 
-int validar3() {
-    char nome[50];
-    printf("Digite o nome: ");
-    fgets(nome, sizeof(nome), stdin);
-    nome[strcspn(nome, "\n")] = 0; // remove newline character
-    if(validar_nome(nome)) {
-        printf("Nome válido.\n");
-    } else {
-        printf("Nome inválido.\n");
-    }
-    return 0;
-}
-
 
 //Validar placa de veículo 
 
-int valida_placa(char *placa) {
+int validar_placa(char *placa) {
     int i;
     for (i = 0; i < 3; i++) {
         if (!isalpha(placa[i])) {
@@ -130,18 +91,6 @@ int valida_placa(char *placa) {
     }
     return 1;
 }
-
-int validar4() {
-    char placa[9];
-    printf("Digite a placa do veiculo: ");
-    scanf("%s", placa);
-    if (valida_placa(placa)) {
-        printf("Placa válida!\n");
-    } else {
-        printf("Placa inválida!\n");
-    }
-    return 0;
-} 
 
 
 //validar pagamento de aluguel de veículo
@@ -161,9 +110,8 @@ float validar_aluguel(float *aluguel_V){
 
 float validar_entrada_V(float *entrada_V){ 
 float hora;     
-if (hora < 7 || hora > 19) {
-     //printf("Hora de entrada inválida. Deve estar entre 07:00 
-//e 19:00.\n");
+if (hora < 12 || hora > 19) {
+    printf("Horário inválido. Deve estar entre 12h e 19h.\n");
     } else {
         printf("Entrada de veiculo válida.\n");
     }
@@ -183,4 +131,16 @@ if (hora < 7 || hora > 22) {
     }
 
     return 0;
+} 
+
+
+//Validar ano 
+
+int validar_ano(char *ano_V){
+    for (int i = 0; ano_V[i] != '\0'; i++) {
+        if (ano_V[i] != '/' && !isdigit(ano_V[i])) {
+            return 0; // Não é numérico
+        }
+    }
+    return 1; // É numérico
 }
