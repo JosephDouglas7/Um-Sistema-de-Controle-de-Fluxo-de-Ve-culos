@@ -52,18 +52,19 @@ void alterar_veiculo(void) {
 void excluir_veiculo(void) {
   void regravar_veiculo(Veiculo * vco1);
   Veiculo *vco1;
-  char *vco;
-  vco = tela_excluir_veiculo();
+  char *placa;
+  placa = tela_excluir_veiculo();
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
-  vco1 = buscar_veiculo(vco);
+  vco1 = buscar_veiculo(placa);
   if (vco1 == NULL) {
     printf("\n\nAluno não encontrado!\n\n");
   } else {
-    vco1->placa_V;
+    // vco1->placa_V; ???
+    vco1->status = 0;
     regravar_veiculo(vco1);
     free(vco1);
   }
-  free(vco);
+  free(placa);
 }
 
 
@@ -115,25 +116,39 @@ Veiculo *preencher_veiculo(void) {
   system("clear||cls");
   printf("\n");
   printf("\n##############################################\n");
-  printf("\nMarca do veículo:");
-  scanf(" %19[^\n]", vco1->marca_V);
-  validar_nome(vco1->marca_V);
-  printf("\nPlaca do veículo:");
-  scanf(" %8[^\n]", vco1->placa_V);
-  validar_nome(vco1->placa_V);
-  printf("\nMês:");
-  scanf(" %2[^\n]", vco1->mes_V);
-  validar_nome(vco1->mes_V);
-  printf("\nAno:");
-  scanf(" %4[^\n]", vco1->ano_V);
-  validar_nome(vco1->ano_V);
-  printf("\nvalor pago:");
-  scanf(" %f", &vco1->aluguel_V);
-  validar_aluguel(&vco1->aluguel_V);
+  printf("\nMarca do veiculo: "); 
+  scanf("%s", vco1->marca_V);
+  ler_placa(vco1->placa_V); 
+  ler_ano(vco1-> ano_V);
+  vco1->status = 1;
   getchar();
   sleep(1);
   return vco1;
 }
+
+
+void ler_placa(char* placa_V) {
+    printf("\nDigite a placa do veículo: ");
+    scanf("%s", placa_V);
+    while (!validar_placa(placa_V)) {
+      printf("Marca inválida!\n");
+      printf("Digite a marca do veículo: ");
+      scanf("%s", placa_V); 
+      break;
+    }
+}    
+
+
+void ler_ano(char* ano_V) {
+    printf("Digite o ano do veículo: ");
+    scanf("%s", ano_V);
+    while (!validar_ano(ano_V)) {
+      printf("Ano inválida!\n");
+      printf("Digite o ano do veículo: ");
+      scanf("%s", ano_V); 
+      break;
+    }
+} 
 
 
 char *tela_pesquisar_veiculo(void) {
@@ -221,9 +236,7 @@ void exibir_veiculo(Veiculo *vco1) {
     printf("\n= = = Veiculo Cadastrado = = =\n");
     printf("Marca: %s\n", vco1->marca_V);
     printf("Placa: %s\n", vco1->placa_V);
-    printf("Mês: %s\n", vco1->mes_V);
     printf("Ano: %s\n", vco1->ano_V);
-    printf("valor pago: %.2f\n", vco1->aluguel_V);
     printf("Status: %d\n", vco1->status);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
