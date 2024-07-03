@@ -7,6 +7,7 @@ struct veiculo {
   int status;
 };
 
+
 void modulo_cadastrar_veiculo(void);
 void cadastrar_veiculo(void); 
 char tela_cadastrar_veiculo(void); 
@@ -20,6 +21,5 @@ char *tela_alterar_veiculo(void);
 void excluir_veiculo(void);
 char *tela_excluir_veiculo(void);
 void gravar_veiculo(Veiculo *);
-
 Veiculo *buscar_veiculo(char *);
 void exibir_veiculo(Veiculo *);
