@@ -11,7 +11,7 @@
 
 int validar_celular(char *celular) {
     int len = strlen(celular);
-    if(len != 11) {
+    if(len != 9) {
         return 0;
     }
     for(int i = 0; i < len; i++) {
