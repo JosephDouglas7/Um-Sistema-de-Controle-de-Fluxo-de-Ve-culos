@@ -131,8 +131,8 @@ void ler_placa(char* placa_V) {
     printf("\nDigite a placa do veículo: ");
     scanf("%s", placa_V);
     while (!validar_placa(placa_V)) {
-      printf("Marca inválida!\n");
-      printf("Digite a marca do veículo: ");
+      printf("Placa inválida!\n");
+      printf("Digite a placa do veículo: ");
       scanf("%s", placa_V); 
       break;
     }
@@ -197,7 +197,6 @@ void erro_arquivo_veiculo(void) {
 
 
 void gravar_veiculo(Veiculo *vco1) {
-
   FILE *fp;
   fp = fopen("veiculos.dat", "ab");
   if (fp == NULL) {
@@ -209,7 +208,6 @@ void gravar_veiculo(Veiculo *vco1) {
 
 
 Veiculo *buscar_veiculo(char *placa) {
-
   FILE *fp;
   Veiculo *vco1;
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
@@ -245,7 +243,6 @@ void exibir_veiculo(Veiculo *vco1) {
 
 
 void regravar_veiculo(Veiculo *vco1) {
-
   int achou;
   FILE *fp;
   Veiculo *vco1_Lido;
