@@ -1,6 +1,5 @@
 //Feito com ajuda: https://copilot.microsoft.com/
 
-
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
