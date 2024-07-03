@@ -21,11 +21,13 @@ void cadastrar_cliente(void){
 void pesquisar_cliente(void){ 
    Cliente* carro;
    char* cpf;  // precisa?
+
    cpf = tela_pesquisar_cliente();
    carro = buscar_cliente(cpf);
    exibir_cliente(carro);
    free(carro); 
    free(cpf);
+
 }  
 
 
@@ -33,6 +35,7 @@ void alterar_cliente(void){
   void regravar_cliente(Cliente* cpf);
    Cliente* cpf;
    char* vco;
+
    vco = tela_alterar_cliente();
    cpf = buscar_cliente(vco);
    if (cpf == NULL) {
@@ -61,9 +64,12 @@ void alterar_cliente(void){
         cpf->cpf;
         regravar_cliente(cpf);
         free(cpf);
+
  } 
   free(vco);
 } 
+
+
 
 
 void modulo_cadastrar_cliente(void){  
@@ -84,6 +90,7 @@ void modulo_cadastrar_cliente(void){
                  break;
     }
   } while (op != '5'); 
+
 }    
 
 
@@ -112,8 +119,8 @@ Cliente* preencher_cliente(void){
    cliente = (Cliente*) malloc(sizeof(Cliente));
    system("clear||cls");
    printf("\n");
-   printf("\n#################################################\n"); 
-   printf("\n#                                               #\n");     
+   printf("\n#####################################\n"); 
+   printf("\n#                                   #\n");   
    ler_nome(cliente->nome); 
    ler_celular(cliente->celular); 
    ler_cpf(cliente->cpf); 
@@ -129,7 +136,7 @@ void ler_nome(char* nome){
   scanf("%s", nome);
   while (!validar_nome(nome)) {
    printf("Nome do cliente inválido!\n");
-   printf("Digite o nome do cliente: ");
+   printf("\nDigite o nome do cliente:");
    scanf("%s", nome); 
    break;
  }
@@ -141,7 +148,7 @@ void ler_celular(char* celular){
   scanf("%s", celular);
 while (!validar_celular(celular)) {
      printf("Telefone do cliente inválido!\n");
-     printf("Digite o telefone do cliente: ");
+     printf("\nDigite o telefone do cliente:");
      scanf("%s", celular); 
      break;
    }
@@ -149,11 +156,11 @@ while (!validar_celular(celular)) {
 
 
 void ler_cpf(char* cpf){ 
-  printf("\nDigite o CPF do cliente:");
+  printf("\nDigite o CPF do cliente (apenas números):");
   scanf("%s", cpf);
   while (!validar_cpf(cpf)) {
    printf("CPF do cliente inválido!\n");
-   printf("Digite o CPF do cliente: ");
+   printf("Digite o CPF do cliente:");
    scanf("%s", cpf); 
    break;
  }
@@ -207,11 +214,11 @@ char* tela_excluir_cliente(void){
 
 void erro_arquivo_cliente(void){ 
    printf("Ops! Ocorreu um erro no arquivo!\n");
+
 } 
 
 
 void gravar_cliente(Cliente* vco1){  
-
     FILE* fp;
     fp = fopen("cliente.dat", "ab");
     if (fp == NULL) {
@@ -223,7 +230,6 @@ void gravar_cliente(Cliente* vco1){
 
 
 Cliente* buscar_cliente(char* placa) { 
-
   FILE* fp;
   Cliente* vco1;
   vco1 = (Cliente*) malloc(sizeof(Cliente));
@@ -243,16 +249,16 @@ Cliente* buscar_cliente(char* placa) {
 
 
 void exibir_cliente(Cliente* carro) {  
-  Cliente *vco1;
-  vco1 = (Cliente*) malloc(sizeof(Cliente));
-  if (vco1 == NULL) {
+  Cliente *cliente;
+  cliente = (Cliente*) malloc(sizeof(Cliente));
+  if (cliente == NULL) {
     printf("\n= = = Cliente Inexistente = = =\n");
   } else {
     printf("\n= = = Cliente Cadastrado = = =\n");
-    printf("Nome: %s\n", vco1->nome);
-    printf("Celular: %s\n", vco1->celular);
-    printf("CPF: %s\n", vco1->cpf);  
-    printf("Status: %d\n",vco1->status);
+    printf("Nome: %s\n", cliente->nome);
+    printf("Celular: %s\n", cliente->celular);
+    printf("CPF: %s\n", cliente->cpf);  
+    printf("Status: %d\n",cliente->status);
   }
   printf("\n\nTecle ENTER para continuar!\n\n");
   getchar();
@@ -268,7 +274,6 @@ void exibir_cliente(Cliente* carro) {
   if (fp == NULL) {
     erro_arquivo_cliente();
   }
-
   achou = 0;
   while(fread(vco1_Lido, sizeof(Cliente), 1, fp) && !achou) {
     fread(vco1_Lido, sizeof(Cliente), 1, fp);
