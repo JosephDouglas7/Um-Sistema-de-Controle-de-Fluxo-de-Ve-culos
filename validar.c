@@ -129,7 +129,6 @@ if (hora < 7 || hora > 22) {
     } else {
         printf("Saída de veiculo válida.\n");
     }
-
     return 0;
 } 
 
