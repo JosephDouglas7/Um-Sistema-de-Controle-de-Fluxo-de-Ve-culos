@@ -1,4 +1,3 @@
-
 #include <stdio.h>  
 #include <stdlib.h>  
 #include <string.h>
@@ -109,9 +108,7 @@ Fluxo_Veiculo* preencher_entrada_saida(void){
     system("clear||cls");
     printf("\n");    
     printf("\n#############################################\n"); 
-printf("\n  =  Entrada/Saída de veículos =             \n"); 
-    ler_nome1(vco1->nome); 
-    ler_celular1(vco1->celular); 
+    printf("\n  =  Entrada/Saída de veículos =             \n"); 
     ler_cpf1(vco1->cpf);
     ler_placa1(vco1->placa_V); 
     ler_entrada(&vco1->entrada_V);
@@ -124,36 +121,13 @@ printf("\n  =  Entrada/Saída de veículos =             \n");
 }   
 
 
-void ler_nome1(char*nome){
-    printf("\nDigite o nome do cliente:");
-    scanf("%s", nome);
-    while (!validar_nome(nome)) {
-      printf("Nome inválido!\n");
-      printf("\nDigite o nome do cliente:");
-      scanf("%s", nome); 
-    }
-}  
-
-
-void ler_celular1(char* celular) {
-    printf("\nDigite o telefone do cliente:");
-    scanf("%s", celular);
-    while (!validar_celular(celular)) {
-      printf("telefone inválido!\n");
-      printf("\nDigite o telefone do cliente:");
-      scanf("%s", celular);  
-      break;
-    } 
-}   
-
-
 void ler_cpf1(char* cpf){
-    printf("\nDigite o CPF do cliente (apenas números): ");
+    printf("\nDigite o CPF do cliente (apenas números):");
     scanf("%s", cpf);
     while (!validar_cpf(cpf)) {
-      printf("CPF inválido!\n");
-      printf("\nDigite o CPF do cliente no formato 11122233344: ");
-      scanf("%s", cpf);
+      printf("\nCPF inválido!\n");
+      printf("\nDigite o CPF do cliente no formato 11122233344:");
+      scanf("%s", cpf); 
     }
 }  
 
@@ -169,38 +143,42 @@ void ler_placa1(char* placa) {
 }  
 
 
-void ler_entrada(float* entrada_V){ 
-    printf("\nDigite a entrada do veiculo:");
-    scanf("%f", entrada_V);
+void ler_entrada(char* entrada_V){ 
+    printf("\nDigite a entrada do veiculo:");  
+    //fgets(entrada_V, sizeof(entrada_V), stdin);
+    scanf("%c", entrada_V);
     while (!validar_entrada_V(entrada_V)) {
      printf("Entrada de veiculo inválida!\n");
-     printf("\nDigite a entrada do veiculo:");
-     scanf("%f", entrada_V);  
-     break;
+     printf("\nDigite a entrada do veiculo:");  
+     //fgets(entrada_V, sizeof(entrada_V), stdin);
+     scanf("%c", entrada_V);  
+     return;
    }
 }  
 
 
-void ler_saida(float* saida_V){ 
-    printf("\nDigite a saida do veiculo:");
-    scanf("%f", saida_V);
+void ler_saida(char* saida_V){ 
+    printf("\nDigite a saida do veiculo:");  
+    //fgets(saida_V, sizeof(saida_V), stdin);  
+    scanf("%c", saida_V);
   while (!validar_saida_V(saida_V)) {
        printf("Saida do veiculo inválida!\n");
-       printf("\nDigite a saida do veiculo:");
-       scanf("%f", saida_V);  
-       break;
+       printf("\nDigite a saida do veiculo:");  
+       //fgets(saida_V, sizeof(saida_V), stdin); 
+       scanf("%c", saida_V); 
+       return;
      }
 } 
 
 
 void ler_aluguel_V(float* aluguel_V){ 
-     printf("\nDigite o aluguel do veiculo:");
-     scanf("%f", aluguel_V);
+     printf("\nDigite o aluguel do veiculo:"); 
+     scanf("%f", aluguel_V);  
    while (!validar_aluguel(aluguel_V)) {
         printf("Aluguel do veiculo inválido!\n");
-        printf("Digite o aluguel do veiculo:");
-        scanf("%f", aluguel_V);  
-        break;
+        printf("\nDigite o aluguel do veiculo:");  
+        scanf("%f", aluguel_V); 
+        return;
       }
 }
 
@@ -252,7 +230,6 @@ void erro_arquivo_entrada_saida(void){
 
 
 void gravar_entrada_saida(Fluxo_Veiculo* vco1){  
-
     FILE* fp;
     fp = fopen("fluxo_veiculo.dat", "ab");
     if (fp == NULL) {
@@ -264,7 +241,6 @@ void gravar_entrada_saida(Fluxo_Veiculo* vco1){
 
 
 Fluxo_Veiculo* buscar_entrada_saida(char* placa) { 
-
   FILE* fp;
   Fluxo_Veiculo* vco1;
   vco1 = (Fluxo_Veiculo*) malloc(sizeof(Fluxo_Veiculo));
@@ -289,9 +265,7 @@ void exibir_entrada_saida(Fluxo_Veiculo* vco1) {
   if (vco1 == NULL) {
     printf("\n= = = Veiculo Inexistente = = =\n");
   } else {
-    printf("\n= = = Veiculo Cadastrado = = =\n"); 
-    printf("\nNome do cliente: %s\n", vco1->nome); 
-    printf("\nCelular do cliente:%s\n", vco1->celular); 
+    printf("\n= = = Veiculo Cadastrado = = =\n");  
     printf("\nCPF do cliente:%s\n", vco1->cpf);
     printf("\nPlaca do veículo: %s\n", vco1->placa_V);
     printf("\nEntrada: %.2f\n", vco1->entrada_V); 
@@ -305,7 +279,6 @@ void exibir_entrada_saida(Fluxo_Veiculo* vco1) {
 
 
  void regravar_entrada_saida(Fluxo_Veiculo* vco1) {  
-
   int achou;
   FILE* fp;
   Fluxo_Veiculo* vco1_Lido;  
