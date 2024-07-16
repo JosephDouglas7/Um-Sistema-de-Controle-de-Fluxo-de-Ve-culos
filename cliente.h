@@ -4,7 +4,8 @@ struct cliente{
   char nome[100]; 
   char celular[12]; 
   char cpf[12];  
-  int status;
+  int status; 
+  struct cliente* prox;
 };   
 
 
