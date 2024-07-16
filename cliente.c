@@ -32,49 +32,41 @@ void pesquisar_cliente(void){
 
 
 void alterar_cliente(void){  
-  void regravar_cliente(Cliente* cpf);
-   Cliente* cpf;
-   char* vco;
+   Cliente* cliente;
+   char* cpf;
 
-   vco = tela_alterar_cliente();
-   cpf = buscar_cliente(vco);
-   if (cpf == NULL) {
+   cpf = tela_alterar_cliente();
+   cliente = buscar_cliente(cpf);
+   if (cliente == NULL) {
        printf("\n\nAluno não encontrado!\n\n");
      } else {
-       cpf = preencher_cliente();
-       strcpy(cpf->cpf, vco);
-       regravar_cliente(cpf);
-       free(cpf); 
+       cliente = preencher_cliente();
+       regravar_cliente(cliente);
+       free(cliente); 
   }
-  free(vco);
+  free(cpf);
 }  
 
 
  void excluir_cliente(void){  
-    void regravar_cliente(Cliente* vco1);
     Cliente* cpf;
-    char * vco;
-
-    vco = tela_excluir_cliente();
+    char * cliente;
+    cliente = tela_excluir_cliente();
     cpf = (Cliente*) malloc(sizeof(Cliente));
-    cpf = buscar_cliente(vco);
+    cpf = buscar_cliente(cliente);
     if (cpf == NULL) {
         printf("\n\nAluno não encontrado!\n\n");
       } else {
-        cpf->cpf;
+        cpf->status = 0;
         regravar_cliente(cpf);
         free(cpf);
-
  } 
-  free(vco);
+  free(cliente);
 } 
-
-
 
 
 void modulo_cadastrar_cliente(void){  
   char op;   
-
   do{
      op = tela_cadastrar_cliente();
     switch(op){ 
@@ -86,11 +78,8 @@ void modulo_cadastrar_cliente(void){
                   break;  
       case  '4' : excluir_cliente(); 
                   break;   
-      case  '5': tela_menu_principal(); 
-                 break;
     }
   } while (op != '5'); 
-
 }    
 
 
@@ -98,15 +87,14 @@ char tela_cadastrar_cliente(void){
   char op; 
   system("clear||cls");
   printf("\n");   
-                 
- printf("\n###############################################\n"); 
- printf("\n#    = = =  tela cadastrar cliente = = =      #\n"); 
- printf("\n# 1.cadastrar cliente                         #\n"); 
- printf("\n# 2.Pesquisar cliente                         #\n");
- printf("\n# 3.alterar cliente                           #\n"); 
- printf("\n# 4.excluir cliente                           #\n"); 
- printf("\n# 5.Retornar ao menu principal                #\n"); 
- printf("\n###############################################\n"); 
+ printf("\n###################################\n"); 
+ printf("\n# = =  tela cadastrar cliente = = #\n"); 
+ printf("\n# 1.cadastrar cliente             #\n"); 
+ printf("\n# 2.Pesquisar cliente             #\n");
+ printf("\n# 3.alterar cliente               #\n"); 
+ printf("\n# 4.excluir cliente               #\n"); 
+ printf("\n# 5.Retornar ao menu principal    #\n"); 
+ printf("\n###################################\n"); 
  printf("\nQual sua opcao?:"); 
  scanf("%c",&op);  
  getchar();  
@@ -118,9 +106,7 @@ Cliente* preencher_cliente(void){
    Cliente *cliente;
    cliente = (Cliente*) malloc(sizeof(Cliente));
    system("clear||cls");
-   printf("\n");
-   printf("\n#####################################\n"); 
-   printf("\n#                                   #\n");   
+   printf("\n");  
    ler_nome(cliente->nome); 
    ler_celular(cliente->celular); 
    ler_cpf(cliente->cpf); 
@@ -138,7 +124,6 @@ void ler_nome(char* nome){
    printf("Nome do cliente inválido!\n");
    printf("\nDigite o nome do cliente:");
    scanf("%s", nome); 
-   break;
  }
 }  
 
@@ -146,23 +131,21 @@ void ler_nome(char* nome){
 void ler_celular(char* celular){ 
   printf("\nDigite o telefone do cliente:");
   scanf("%s", celular);
-while (!validar_celular(celular)) {
+  while (!validar_celular(celular)) {
      printf("Telefone do cliente inválido!\n");
      printf("\nDigite o telefone do cliente:");
      scanf("%s", celular); 
-     break;
    }
 } 
 
 
 void ler_cpf(char* cpf){ 
   printf("\nDigite o CPF do cliente (apenas números):");
-  scanf("%s", cpf);
+  scanf("%s", cpf); 
   while (!validar_cpf(cpf)) {
    printf("CPF do cliente inválido!\n");
    printf("Digite o CPF do cliente:");
-   scanf("%s", cpf); 
-   break;
+   scanf("%s", cpf);  
  }
 }  
 
@@ -171,9 +154,8 @@ char* tela_pesquisar_cliente(void){
      char* vco;
      vco = (char*) malloc(9*sizeof(char));
      system("clear||cls");
-     printf("\n");
-     printf("\n###############################################\n"); 
-     printf("\n#                                             #\n");  
+     printf("\n"); 
+     printf("\n- - - Pesquisar cliente - - -\n");
      printf("\nPesquisar CPF:");  
      scanf(" %11[^\n]",vco);
      getchar(); 
@@ -187,8 +169,7 @@ char* tela_alterar_cliente(void){
     vco = (char*) malloc(12*sizeof(char)); 
     system("clear||cls");
     printf("\n");
-    printf("\n################################################\n"); 
-    printf("\n#                                              #\n"); 
+    printf("\n- - - - Alterar cliente - - - -\n");       
     printf("\nAlterar CPF:"); 
     scanf("%11[^\n]",vco);
     getchar(); 
@@ -202,14 +183,15 @@ char* tela_excluir_cliente(void){
     vco = (char*) malloc(12*sizeof(char)); 
     system("clear||cls");
     printf("\n");
-    printf("\n############################################\n"); 
-    printf("\n#                                          #\n"); 
+    printf("\n- - - Excluir cliente - - -\n"); 
     printf("\nExcluir CPF:");  
-    scanf("%11[^\n]",vco);
+    scanf(" %12[^\n]",vco);
     getchar(); 
-    sleep(1);
     return vco;
-} 
+}  
+
+
+
 
 
 void erro_arquivo_cliente(void){ 
@@ -250,7 +232,13 @@ Cliente* buscar_cliente(char* placa) {
 
 void exibir_cliente(Cliente* carro) {  
   Cliente *cliente;
-  cliente = (Cliente*) malloc(sizeof(Cliente));
+  cliente = (Cliente*) malloc(sizeof(Cliente)); 
+    //for (cliente = carro; cliente != NULL; cliente = cliente->prox)
+    //{
+        //printf("%d-> ", cliente->cliente);
+   // }
+   // printf("\n");
+//}
   if (cliente == NULL) {
     printf("\n= = = Cliente Inexistente = = =\n");
   } else {
