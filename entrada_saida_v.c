@@ -1,3 +1,4 @@
+
 #include <stdio.h>  
 #include <stdlib.h>  
 #include <string.h>
@@ -64,16 +65,14 @@ void alterar_entrada_saida(void){
 char tela_entrada_saida(void){   
     char op; 
     system("clear||cls");
-    printf("\n");    
-    printf("\n########################################\n"); 
-    printf("\n#                                      #\n");
-    printf("\n#  = =  Entrada/Saída de veículos = =  #\n");
-    printf("\n#  1.Cadastrar entrada e saída         #\n"); 
-    printf("\n#  2.Pesquisar entrada e saída         #\n");  
-    printf("\n#  3.Alterar entrada e saída           #\n"); 
-    printf("\n#  4.Excluir entrada e saída           #\n"); 
-    printf("\n#  5.Voltar ao menu principal          #\n");   
-    printf("\n########################################\n"); 
+    printf("\n");        
+    printf("\n#################################\n"); 
+    printf("\n#   = =  Fluxo de veículos = =  #\n");
+    printf("\n#  1.Cadastrar entrada e saída  #\n"); 
+    printf("\n#  2.Pesquisar entrada e saída  #\n"); 
+    printf("\n#  3.Alterar entrada e saída    #\n"); 
+    printf("\n#  4.Excluir entrada e saída    #\n"); 
+    printf("\n#  5.Voltar ao menu principal   #\n");     printf("\n#################################\n"); 
     printf("\nQual sua opcao?:"); 
     scanf("%c",&op); 
     getchar();  
@@ -94,8 +93,6 @@ char modulo_entrada_saida(void){
                   break;  
       case  '4' : excluir_entrada_saida(); 
                   break;  
-      case  '5': tela_menu_principal(); 
-                 break;
     }
   } while (op != '5'); 
   return 0; 
@@ -106,13 +103,11 @@ Fluxo_Veiculo* preencher_entrada_saida(void){
     Fluxo_Veiculo *vco1;
     vco1 = (Fluxo_Veiculo*) malloc(sizeof(Fluxo_Veiculo));
     system("clear||cls");
-    printf("\n");    
-    printf("\n#############################################\n"); 
-    printf("\n  =  Entrada/Saída de veículos =             \n"); 
+    printf("\n");         
+    printf("\n = = =  Entrada/Saída de veículos = = =\n"); 
     ler_cpf1(vco1->cpf);
     ler_placa1(vco1->placa_V); 
-    ler_entrada(&vco1->entrada_V);
-    ler_saida(&vco1->saida_V);  
+    ler_saida(vco1->saida_V);  
     ler_aluguel_V(&vco1->aluguel_V);
     vco1->status = 1;
     getchar();   
@@ -144,17 +139,14 @@ void ler_placa1(char* placa) {
 
 
 void ler_entrada(char* entrada_V){ 
-    printf("\nDigite a entrada do veiculo:");  
-    //fgets(entrada_V, sizeof(entrada_V), stdin);
-    scanf("%c", entrada_V);
-    while (!validar_entrada_V(entrada_V)) {
-     printf("Entrada de veiculo inválida!\n");
-     printf("\nDigite a entrada do veiculo:");  
-     //fgets(entrada_V, sizeof(entrada_V), stdin);
-     scanf("%c", entrada_V);  
+     time_t agora;  
+     char datahora[100]; 
+     agora = time(NULL); 
+     strftime(datahora, sizeof(datahora), "%d/%m/%Y %H:%M:%S"); 
+     printf("Data/hora:%s/n",datahora);
      return;
-   }
-}  
+}
+ 
 
 
 void ler_saida(char* saida_V){ 
@@ -188,8 +180,7 @@ char* tela_pesquisar_entrada_saida(void){
     vco = (char*) malloc(9*sizeof(char));
     system("clear||cls");
     printf("\n");     
-    printf("\n######################################\n");
-    printf("\n   - - Pesquisar entrada/saida.v - -  \n");  
+    printf("\n- - Pesquisar fluxo de V. - -\n");  
     printf("\nPlaca do veículo:");  
     scanf(" %8[^\n]",vco); 
     fgets(vco, sizeof(vco), stdin);  
@@ -202,22 +193,22 @@ char* tela_pesquisar_entrada_saida(void){
     vco = (char*) malloc(12*sizeof(char));  
     system("clear||cls");
     printf("\n");      
-    printf("\n###################################\n");   
+    printf("\n- - - - Alterar fluxo de V. - - - -\n");   
     printf("\nPlaca do veículo para alterar:");  
-    fgets(vco, sizeof(vco), stdin);
+    scanf(" %11[^\n]",vco);
     getchar();  
     return vco;
 }
 
 
-  char* tela_excluir_entrada_saida(void){  
+char* tela_excluir_entrada_saida(void){  
     char *vco;
     vco = (char*) malloc(12*sizeof(char)); 
     system("clear||cls");
     printf("\n");       
-    printf("\n####################################\n");  
-    printf("\nPlaca do veículo para excluir:");  
-    fgets(vco, sizeof(vco), stdin);
+    printf("\n- - Excluir fluxo de V. - -\n"); 
+    printf("\nPlaca para excluir:");  
+    scanf(" %11[^\n]",vco);
     getchar();  
     return vco;
 } 
@@ -225,7 +216,6 @@ char* tela_pesquisar_entrada_saida(void){
 
 void erro_arquivo_entrada_saida(void){ 
    printf("Ops! Ocorreu um erro no arquivo!\n");
-
 } 
 
 
@@ -262,7 +252,7 @@ Fluxo_Veiculo* buscar_entrada_saida(char* placa) {
 
 void exibir_entrada_saida(Fluxo_Veiculo* vco1) {  
   vco1 = (Fluxo_Veiculo*) malloc(sizeof(Fluxo_Veiculo));
-  if (vco1 == NULL) {
+  if (vco1 == NULL || 0 ) {
     printf("\n= = = Veiculo Inexistente = = =\n");
   } else {
     printf("\n= = = Veiculo Cadastrado = = =\n");  
