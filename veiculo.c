@@ -32,7 +32,6 @@ void pesquisar_veiculo(void) {
 
 
 void alterar_veiculo(void) {
-  void regravar_veiculo(Veiculo * vco1);
   Veiculo *vco1;
   char *vco;
   vco = tela_alterar_veiculo();
@@ -50,7 +49,6 @@ void alterar_veiculo(void) {
 
 
 void excluir_veiculo(void) {
-  void regravar_veiculo(Veiculo * vco1);
   Veiculo *vco1;
   char *placa;
   placa = tela_excluir_veiculo();
@@ -59,10 +57,9 @@ void excluir_veiculo(void) {
   if (vco1 == NULL) {
     printf("\n\nAluno não encontrado!\n\n");
   } else {
-    // vco1->placa_V; ???
-    vco1->status = 0;
-    regravar_veiculo(vco1);
-    free(vco1);
+          vco1->status = 0;
+          regravar_veiculo(vco1);
+          free(vco1);
   }
   free(placa);
 }
@@ -89,7 +86,6 @@ char tela_cadastrar_veiculo(void) {
 
 void modulo_cadastrar_veiculo(void) {
   char op;
-
   do {
     op = tela_cadastrar_veiculo();
     switch (op) {
@@ -115,8 +111,7 @@ Veiculo *preencher_veiculo(void) {
   vco1 = (Veiculo *)malloc(sizeof(Veiculo));
   system("clear||cls");
   printf("\n");
-  printf("\n##############################################\n");
-  printf("\nMarca do veiculo: "); 
+  printf("\nMarca do veiculo:"); 
   scanf("%s", vco1->marca_V);
   ler_placa(vco1->placa_V); 
   ler_ano(vco1-> ano_V);
@@ -128,11 +123,11 @@ Veiculo *preencher_veiculo(void) {
 
 
 void ler_placa(char* placa_V) {
-    printf("\nDigite a placa do veículo: ");
+    printf("Digite a placa do veículo:");
     scanf("%s", placa_V);
     while (!validar_placa(placa_V)) {
       printf("Placa inválida!\n");
-      printf("Digite a placa do veículo: ");
+      printf("Digite a placa do veículo:");
       scanf("%s", placa_V); 
       break;
     }
@@ -140,11 +135,11 @@ void ler_placa(char* placa_V) {
 
 
 void ler_ano(char* ano_V) {
-    printf("Digite o ano do veículo: ");
+    printf("Digite o ano do veículo:");
     scanf("%s", ano_V);
     while (!validar_ano(ano_V)) {
       printf("Ano inválida!\n");
-      printf("Digite o ano do veículo: ");
+      printf("Digite o ano do veículo:");
       scanf("%s", ano_V); 
       break;
     }
@@ -155,7 +150,8 @@ char *tela_pesquisar_veiculo(void) {
   char *vco;
   vco = (char *)malloc(9 * sizeof(char));
   system("clear||cls");
-  printf("\n");
+  printf("\n"); 
+  printf("\n- - - Pesquisar veiculo - - -\n");
   printf("\nPlaca do veículo:");
   scanf(" %8[^\n]", vco);
   fgets(vco, sizeof(vco), stdin);
@@ -168,8 +164,7 @@ char *tela_alterar_veiculo(void) {
   vco = (char *)malloc(12 * sizeof(char));
   system("clear||cls");
   printf("\n");
-  printf("\n######################################################\n");
-  printf("\n#                                                    #\n");
+  printf("\n - - - - Alterar Veiculo - - - -\n");
   printf("\nPlaca do veiculo para alterar:");
   scanf("%11[^\n]", vco);
   printf("\n");
@@ -183,7 +178,7 @@ char *tela_excluir_veiculo(void) {
   vco = (char *)malloc(12 * sizeof(char));
   system("clear||cls");
   printf("\n");
-  printf("\n########################################\n");
+  printf("\n- - - - Excluir Veiculo - - - -\n");
   printf("\nPlaca do veículo para excluir:");
   scanf(" %8[^\n]", vco);
   getchar();
