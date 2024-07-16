@@ -4,7 +4,8 @@ struct veiculo {
   char marca_V[20];
   char placa_V[9];
   char ano_V[5];
-  int status;
+  int status; 
+  Veiculo* prox;
 };
 
 
@@ -22,4 +23,5 @@ void excluir_veiculo(void);
 char *tela_excluir_veiculo(void);
 void gravar_veiculo(Veiculo *);
 Veiculo *buscar_veiculo(char *);
-void exibir_veiculo(Veiculo *);
+void exibir_veiculo(Veiculo *); 
+void regravar_veiculo(Veiculo *);
