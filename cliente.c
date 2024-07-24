@@ -20,21 +20,18 @@ void cadastrar_cliente(void){
 
 void pesquisar_cliente(void){ 
    Cliente* carro;
-   char* cpf;  // precisa?
-
+   char* cpf;  
    cpf = tela_pesquisar_cliente();
    carro = buscar_cliente(cpf);
    exibir_cliente(carro);
    free(carro); 
    free(cpf);
-
 }  
 
 
 void alterar_cliente(void){  
    Cliente* cliente;
    char* cpf;
-
    cpf = tela_alterar_cliente();
    cliente = buscar_cliente(cpf);
    if (cliente == NULL) {
@@ -67,6 +64,7 @@ void alterar_cliente(void){
 
 void modulo_cadastrar_cliente(void){  
   char op;   
+
   do{
      op = tela_cadastrar_cliente();
     switch(op){ 
@@ -139,7 +137,7 @@ void ler_celular(char* celular){
 } 
 
 
-void ler_cpf(char* cpf){ 
+void ler_cpf1(char* cpf){ 
   printf("\nDigite o CPF do cliente (apenas números):");
   scanf("%s", cpf); 
   while (!validar_cpf(cpf)) {
@@ -169,9 +167,9 @@ char* tela_alterar_cliente(void){
     vco = (char*) malloc(12*sizeof(char)); 
     system("clear||cls");
     printf("\n");
-    printf("\n- - - - Alterar cliente - - - -\n");       
+    printf("\n- - - Alterar cliente - - -\n");       
     printf("\nAlterar CPF:"); 
-    scanf("%11[^\n]",vco);
+    scanf(" %11[^\n]",vco);
     getchar(); 
     sleep(1);
     return vco;
@@ -189,9 +187,6 @@ char* tela_excluir_cliente(void){
     getchar(); 
     return vco;
 }  
-
-
-
 
 
 void erro_arquivo_cliente(void){ 
@@ -230,9 +225,7 @@ Cliente* buscar_cliente(char* placa) {
 } 
 
 
-void exibir_cliente(Cliente* carro) {  
-  Cliente *cliente;
-  cliente = (Cliente*) malloc(sizeof(Cliente)); 
+void exibir_cliente(Cliente* cliente) {  
     //for (cliente = carro; cliente != NULL; cliente = cliente->prox)
     //{
         //printf("%d-> ", cliente->cliente);
