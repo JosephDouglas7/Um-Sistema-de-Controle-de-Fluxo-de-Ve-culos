@@ -12,10 +12,10 @@ struct cliente{
 void cadastrar_cliente(void);  
 void ler_nome(char*); 
 void ler_celular(char*); 
-void ler_cpf(char*);
+void ler_cpf1(char*);
 char* tela_pesquisar_cliente(void); 
 char* tela_pesquisar_cliente(void);
-Cliente* buscar_cliente(char* placa);
+Cliente* buscar_cliente(char*);
 Cliente* preencher_cliente(void);
 char tela_cadastrar_cliente(void); 
 void pesquisar_cliente(void); 
@@ -24,7 +24,8 @@ char* tela_alterar_cliente(void);
 char* tela_alterar_cliente(void);
 void excluir_cliente(void);  
 char* tela_excluir_cliente(void);
-void gravar_cliente(Cliente* vco1); 
+void gravar_cliente(Cliente*); 
 void erro_arquivo_cliente(void);  
-void exibir_cliente(Cliente* carro); 
-void regravar_cliente(Cliente* vco1);
+void exibir_cliente(Cliente*); 
+void regravar_cliente(Cliente*);
+
