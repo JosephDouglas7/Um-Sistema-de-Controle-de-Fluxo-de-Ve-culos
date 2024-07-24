@@ -5,7 +5,7 @@ struct veiculo {
   char placa_V[9];
   char ano_V[5];
   int status; 
-  Veiculo* prox;
+  //Veiculo* prox;
 };
 
 
@@ -14,7 +14,7 @@ void cadastrar_veiculo(void);
 char tela_cadastrar_veiculo(void); 
 void ler_ano(char*);
 Veiculo *preencher_veiculo(void); 
-void ler_placa(char*);
+void ler_placa1(char*);
 void pesquisar_veiculo(void);
 char *tela_pesquisar_veiculo(void);
 void alterar_veiculo(void);
