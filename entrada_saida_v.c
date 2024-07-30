@@ -118,11 +118,11 @@ Fluxo_Veiculo* preencher_entrada_saida(void){
 
 
 void ler_entrada(char *hora1){ 
-    printf("\nDigite a entrada do veiculo:");
+    printf("\nDigite a entrada do veiculo(Ex: 12:00):");
     scanf("%s", hora1);
     while (!validar_entrada_V(hora1)) {
       printf("Placa inválida!\n");
-      printf("\nDigite a entrada do veiculo:");
+      printf("\nDigite a entrada do veiculo(Ex: 11:00):");
       scanf("%s", hora1);  
     }
 }
