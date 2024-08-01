@@ -86,6 +86,10 @@ int validar_placa(char *placa) {
     for (i = 4; i < 8; i++) {
         if (!isdigit(placa[i])) {
             return 0;
+        }    
+        while(buscar_entrada_saida(placa)!= NULL){ 
+           printf("Placa já registrada");     
+           scanf("%s",placa);
         }
     }
     return 1;
@@ -94,42 +98,57 @@ int validar_placa(char *placa) {
 
 //validar pagamento de aluguel de veículo
 
-float validar_aluguel(float *aluguel_V){
- if (aluguel_V < 0) {
-        printf("Valor de pagamento inválido. Deve ser um número positivo.\n");
+int validar_aluguel(int *i){
+ if (i < 0) {
+    printf("Valor de pagamento inválido. Deve ser um número positivo.\n");
     } else {
         printf("Valor de pagamento válido.\n");
     }
-
-    return 0;
 }
 
 
 //validar entrada de veículos
 
-float validar_entrada_V(float *entrada_V){ 
-float hora;     
-if (hora < 12 || hora > 19) {
-    printf("Horário inválido. Deve estar entre 12h e 19h.\n");
-    } else {
-        printf("Entrada de veiculo válida.\n");
+int validar_entrada_V(char *hora1){ 
+    int i;
+    if (strlen(hora1) != 5) {
+        return 0; // Comprimento incorreto
     }
-    return 0;
+    else if (!isalpha(hora1[0]) || !isalpha(hora1[1])) {
+        return 1; // Os dois primeiros caracteres devem ser letras
+    }
+    else if (hora1[2] != ':') {
+        return 1; // O terceiro caractere deve ser dois pontos
+    }
+    for (i = 3; i < 5; i++) {
+        if (!isdigit(hora1[i])) {
+            return 1; // Os caracteres restantes devem ser dígitos
+        }
+    }
+    return 1; // Data válida
 }  
 
 
 //validar saída de veículos 
 
-float validar_saida_V(float *saida_V){ 
-float hora; 
-    
-if (hora < 7 || hora > 22) {
-        printf("Hora de saída inválida. Deve estar entre 07:00 e 22:00.\n");
-    } else {
-        printf("Saída de veiculo válida.\n");
+int validar_saida_V(char *hora) {
+    int i;
+    if (strlen(hora) != 5) {
+        return 0; // Comprimento incorreto
     }
-    return 0;
-} 
+    else if (!isalpha(hora[0]) || !isalpha(hora[1])) {
+        return 1; // Os dois primeiros caracteres devem ser letras
+    }
+    else if (hora[2] != ':') {
+        return 1; // O terceiro caractere deve ser dois pontos
+    }
+    for (i = 3; i < 5; i++) {
+        if (!isdigit(hora[i])) {
+            return 1; // Os caracteres restantes devem ser dígitos
+        }
+    }
+    return 1; // Data válida
+}
 
 
 //Validar ano 
