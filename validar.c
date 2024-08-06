@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include"validar.h"
+#include"validar.h" 
+#include"entrada_saida_V.h"
 
 
 //Validar número do motorista 
@@ -75,6 +76,7 @@ int validar_nome(char *nome) {
 
 int validar_placa(char *placa) {
     int i;
+    
     for (i = 0; i < 3; i++) {
         if (!isalpha(placa[i])) {
             return 0;
@@ -87,7 +89,7 @@ int validar_placa(char *placa) {
         if (!isdigit(placa[i])) {
             return 0;
         }    
-    }
+    }    
     return 1;
 }
 
