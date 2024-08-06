@@ -1,11 +1,10 @@
-#include <stdio.h>  
 #include <stdio.h>   
 #include <stdlib.h> 
 #include <string.h>  
 #include <unistd.h> 
 #include "cliente.h"
 #include "validar.h"
-
+#include"main.c"
 
 typedef struct cliente Cliente; 
 
