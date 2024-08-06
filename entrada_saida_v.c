@@ -3,7 +3,7 @@
 #include <stdlib.h>  
 #include <string.h>
 #include "entrada_saida_V.h"
-#include "validar.h"
+#include "validar.h"  
 
 typedef struct fluxo_veiculo Fluxo_Veiculo;
 
@@ -140,7 +140,11 @@ void ler_cpf(char* cpf){
 
 void ler_placa(char* placa) {
     printf("\nDigite a placa do veiculo:");
-    scanf("%s", placa);
+    scanf("%s", placa); 
+  while(buscar_entrada_saida(placa)!= NULL){ 
+     printf("Placa já registrada");     
+     scanf("%s",placa);
+  }
     while (!validar_placa(placa)) {
       printf("Placa inválida!\n");
       printf("\nDigite a placa do veiculo:");
@@ -239,7 +243,7 @@ Fluxo_Veiculo* buscar_entrada_saida(char* placa) {
     if ((strcmp(fluxo_veiculo->placa_V,placa) == 0) && (fluxo_veiculo->status == 1)) {
       fclose(fp);
       return fluxo_veiculo;
-    }
+    } 
   }
   fclose(fp);
   return NULL;
@@ -281,7 +285,7 @@ void exibir_entrada_saida(Fluxo_Veiculo* fluxo_veiculo) {
           fwrite(vco1, sizeof(Fluxo_Veiculo), 1, fp);
       break;
     }
-  }
+  } 
   fclose(fp);
   free(vco1_Lido);
 } 
