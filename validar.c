@@ -87,10 +87,6 @@ int validar_placa(char *placa) {
         if (!isdigit(placa[i])) {
             return 0;
         }    
-        while(buscar_entrada_saida(placa)!= NULL){ 
-           printf("Placa já registrada");     
-           scanf("%s",placa);
-        }
     }
     return 1;
 }
