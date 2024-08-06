@@ -1,12 +1,13 @@
 // Feito com base em: https://github.com/flgorgonio/linguasolta_2020.2.git
 
-#include "veiculo.h"
-#include "menus.h"
-#include "validar.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "veiculo.h"
+#include "menus.h"
+#include "validar.h"
+#include"entrada_saida_V.h"
 
 
 typedef struct veiculo Veiculo;
@@ -113,7 +114,7 @@ Veiculo *preencher_veiculo(void) {
   printf("\n");
   printf("\nMarca do veiculo:"); 
   scanf("%s", veiculo->marca_V);
-  ler_placa(veiculo->placa_V); 
+  ler_placa1(veiculo->placa_V); 
   ler_ano(veiculo->ano_V);
   veiculo->status = 1;
   getchar();
@@ -125,6 +126,12 @@ Veiculo *preencher_veiculo(void) {
 void ler_placa1(char* placa) {
     printf("Digite a placa do veículo:");
     scanf("%s", placa);
+
+    while(buscar_entrada_saida(placa)!= NULL){ 
+       printf("Placa já registrada");     
+       scanf("%s",placa);
+    }
+  
     while (!validar_placa(placa)) {
       printf("Placa inválida!\n");
       printf("Digite a placa do veículo:");
