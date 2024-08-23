@@ -225,12 +225,6 @@ Cliente* buscar_cliente(char* placa) {
 
 
 void exibir_cliente(Cliente* cliente) {  
-    //for (cliente = carro; cliente != NULL; cliente = cliente->prox)
-    //{
-        //printf("%d-> ", cliente->cliente);
-   // }
-   // printf("\n");
-//}
   if (cliente == NULL) {
     printf("\n= = = Cliente Inexistente = = =\n");
   } else {
