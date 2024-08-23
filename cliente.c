@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include "cliente.h"
 #include "validar.h"
-//#include"main.c"
+
 
 typedef struct cliente Cliente; 
 
